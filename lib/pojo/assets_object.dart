@@ -58,39 +58,39 @@ class Assets {
 
   Assets(
       {this.id,
-        this.tokenId,
-        this.numSales,
-        this.backgroundColor,
-        this.imageUrl,
-        this.imagePreviewUrl,
-        this.imageThumbnailUrl,
-        this.imageOriginalUrl,
-        this.animationUrl,
-        this.animationOriginalUrl,
-        this.name,
-        this.description,
-        this.externalLink,
-        this.assetContract,
-        this.permalink,
-        this.collection,
-        this.decimals,
-        this.tokenMetadata,
-        this.owner,
-        this.sellOrders,
-        this.creator,
-        this.traits,
-        this.lastSale,
-        this.topBid,
-        this.listingDate,
-        this.isPresale,
-        this.transferFeePaymentToken,
-        this.transferFee});
+      this.tokenId,
+      this.numSales,
+      this.backgroundColor,
+      this.imageUrl,
+      this.imagePreviewUrl,
+      this.imageThumbnailUrl,
+      this.imageOriginalUrl,
+      this.animationUrl,
+      this.animationOriginalUrl,
+      this.name,
+      this.description,
+      this.externalLink,
+      this.assetContract,
+      this.permalink,
+      this.collection,
+      this.decimals,
+      this.tokenMetadata,
+      this.owner,
+      this.sellOrders,
+      this.creator,
+      this.traits,
+      this.lastSale,
+      this.topBid,
+      this.listingDate,
+      this.isPresale,
+      this.transferFeePaymentToken,
+      this.transferFee});
 
   Assets.fromJson(Map<String, dynamic> json) {
     var curId = json['id'];
-    if(curId is String){
+    if (curId is String) {
       id = curId;
-    }else{
+    } else {
       id = json['id'].toString();
     }
 
@@ -117,8 +117,7 @@ class Assets {
     tokenMetadata = json['token_metadata'];
     owner = json['owner'] != null ? Owner.fromJson(json['owner']) : null;
     sellOrders = json['sell_orders'];
-    creator =
-    json['creator'] != null ? Owner.fromJson(json['creator']) : null;
+    creator = json['creator'] != null ? Owner.fromJson(json['creator']) : null;
     if (json['traits'] != null) {
       traits = [];
       json['traits'].forEach((v) {
@@ -208,27 +207,27 @@ class AssetContract {
 
   AssetContract(
       {this.address,
-        this.assetContractType,
-        this.createdDate,
-        this.name,
-        this.nftVersion,
-        this.openseaVersion,
-        this.owner,
-        this.schemaName,
-        this.symbol,
-        this.totalSupply,
-        this.description,
-        this.externalLink,
-        this.imageUrl,
-        this.defaultToFiat,
-        this.devBuyerFeeBasisPoints,
-        this.devSellerFeeBasisPoints,
-        this.onlyProxiedTransfers,
-        this.openseaBuyerFeeBasisPoints,
-        this.openseaSellerFeeBasisPoints,
-        this.buyerFeeBasisPoints,
-        this.sellerFeeBasisPoints,
-        this.payoutAddress});
+      this.assetContractType,
+      this.createdDate,
+      this.name,
+      this.nftVersion,
+      this.openseaVersion,
+      this.owner,
+      this.schemaName,
+      this.symbol,
+      this.totalSupply,
+      this.description,
+      this.externalLink,
+      this.imageUrl,
+      this.defaultToFiat,
+      this.devBuyerFeeBasisPoints,
+      this.devSellerFeeBasisPoints,
+      this.onlyProxiedTransfers,
+      this.openseaBuyerFeeBasisPoints,
+      this.openseaSellerFeeBasisPoints,
+      this.buyerFeeBasisPoints,
+      this.sellerFeeBasisPoints,
+      this.payoutAddress});
 
   AssetContract.fromJson(Map<String, dynamic> json) {
     address = json['address'];
@@ -322,35 +321,35 @@ class Collection {
 
   Collection(
       {this.bannerImageUrl,
-        this.chatUrl,
-        this.createdDate,
-        this.defaultToFiat,
-        this.description,
-        this.devBuyerFeeBasisPoints,
-        this.devSellerFeeBasisPoints,
-        this.discordUrl,
-        this.displayData,
-        this.externalUrl,
-        this.featured,
-        this.featuredImageUrl,
-        this.hidden,
-        this.safelistRequestStatus,
-        this.imageUrl,
-        this.isSubjectToWhitelist,
-        this.largeImageUrl,
-        this.mediumUsername,
-        this.name,
-        this.onlyProxiedTransfers,
-        this.openseaBuyerFeeBasisPoints,
-        this.openseaSellerFeeBasisPoints,
-        this.payoutAddress,
-        this.requireEmail,
-        this.shortDescription,
-        this.slug,
-        this.telegramUrl,
-        this.twitterUsername,
-        this.instagramUsername,
-        this.wikiUrl});
+      this.chatUrl,
+      this.createdDate,
+      this.defaultToFiat,
+      this.description,
+      this.devBuyerFeeBasisPoints,
+      this.devSellerFeeBasisPoints,
+      this.discordUrl,
+      this.displayData,
+      this.externalUrl,
+      this.featured,
+      this.featuredImageUrl,
+      this.hidden,
+      this.safelistRequestStatus,
+      this.imageUrl,
+      this.isSubjectToWhitelist,
+      this.largeImageUrl,
+      this.mediumUsername,
+      this.name,
+      this.onlyProxiedTransfers,
+      this.openseaBuyerFeeBasisPoints,
+      this.openseaSellerFeeBasisPoints,
+      this.payoutAddress,
+      this.requireEmail,
+      this.shortDescription,
+      this.slug,
+      this.telegramUrl,
+      this.twitterUsername,
+      this.instagramUsername,
+      this.wikiUrl});
 
   Collection.fromJson(Map<String, dynamic> json) {
     bannerImageUrl = json['banner_image_url'];
@@ -524,11 +523,11 @@ class Traits {
 
   Traits(
       {this.traitType,
-        this.value,
-        this.displayType,
-        this.maxValue,
-        this.traitCount,
-        this.order});
+      this.value,
+      this.displayType,
+      this.maxValue,
+      this.traitCount,
+      this.order});
 
   Traits.fromJson(Map<String, dynamic> json) {
     traitType = json['trait_type'];
@@ -555,6 +554,7 @@ class Traits {
     return 'Traits{traitType: $traitType, value: $value, displayType: $displayType, maxValue: $maxValue, traitCount: $traitCount, order: $order}';
   }
 }
+
 class BundlesObject {
   List<Bundles>? bundles;
 
@@ -582,6 +582,7 @@ class BundlesObject {
     return 'BundlesObject{bundles: $bundles}';
   }
 }
+
 class Bundles {
   Maker? maker;
   String? slug;
@@ -595,14 +596,14 @@ class Bundles {
 
   Bundles(
       {this.maker,
-        this.slug,
-        this.assets,
-        this.name,
-        this.description,
-        this.externalLink,
-        this.assetContract,
-        this.permalink,
-        this.sellOrders});
+      this.slug,
+      this.assets,
+      this.name,
+      this.description,
+      this.externalLink,
+      this.assetContract,
+      this.permalink,
+      this.sellOrders});
 
   Bundles.fromJson(Map<String, dynamic> json) {
     maker = json['maker'] != null ? Maker.fromJson(json['maker']) : null;
@@ -626,7 +627,6 @@ class Bundles {
         sellOrders!.add(SellOrders.fromJson(v));
       });
     }
-
   }
 
   Map<String, dynamic> toJson() {
@@ -656,6 +656,7 @@ class Bundles {
     return 'Bundles{maker: $maker, slug: $slug, assets: $assets, name: $name, description: $description, externalLink: $externalLink, assetContract: $assetContract, permalink: $permalink, sellOrders: $sellOrders}';
   }
 }
+
 class Maker {
   dynamic user;
   String? profileImgUrl;
@@ -665,7 +666,6 @@ class Maker {
   Maker({this.user, this.profileImgUrl, this.address, this.config});
 
   Maker.fromJson(Map<String, dynamic> json) {
-
     user = json['user'];
     profileImgUrl = json['profile_img_url'];
     address = json['address'];
@@ -675,7 +675,7 @@ class Maker {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
 
-      data['user'] = user;
+    data['user'] = user;
 
     data['profile_img_url'] = profileImgUrl;
     data['address'] = address;
@@ -688,6 +688,7 @@ class Maker {
     return 'Maker{user: $user, profileImgUrl: $profileImgUrl, address: $address, config: $config}';
   }
 }
+
 class SellOrders {
   String? createdDate;
   String? closingDate;
@@ -734,47 +735,47 @@ class SellOrders {
 
   SellOrders(
       {this.createdDate,
-        this.closingDate,
-        this.closingExtendable,
-        this.expirationTime,
-        this.listingTime,
-        this.orderHash,
-        this.metadata,
-        this.exchange,
-        this.maker,
-        this.taker,
-        this.currentPrice,
-        this.currentBounty,
-        this.bountyMultiple,
-        this.makerRelayerFee,
-        this.takerRelayerFee,
-        this.makerProtocolFee,
-        this.takerProtocolFee,
-        this.makerReferrerFee,
-        this.feeRecipient,
-        this.feeMethod,
-        this.side,
-        this.saleKind,
-        this.target,
-        this.howToCall,
-        this.calldata,
-        this.replacementPattern,
-        this.staticTarget,
-        this.staticExtradata,
-        this.paymentToken,
-        this.paymentTokenContract,
-        this.basePrice,
-        this.extra,
-        this.quantity,
-        this.salt,
-        this.v,
-        this.r,
-        this.s,
-        this.approvedOnChain,
-        this.cancelled,
-        this.finalized,
-        this.markedInvalid,
-        this.prefixedHash});
+      this.closingDate,
+      this.closingExtendable,
+      this.expirationTime,
+      this.listingTime,
+      this.orderHash,
+      this.metadata,
+      this.exchange,
+      this.maker,
+      this.taker,
+      this.currentPrice,
+      this.currentBounty,
+      this.bountyMultiple,
+      this.makerRelayerFee,
+      this.takerRelayerFee,
+      this.makerProtocolFee,
+      this.takerProtocolFee,
+      this.makerReferrerFee,
+      this.feeRecipient,
+      this.feeMethod,
+      this.side,
+      this.saleKind,
+      this.target,
+      this.howToCall,
+      this.calldata,
+      this.replacementPattern,
+      this.staticTarget,
+      this.staticExtradata,
+      this.paymentToken,
+      this.paymentTokenContract,
+      this.basePrice,
+      this.extra,
+      this.quantity,
+      this.salt,
+      this.v,
+      this.r,
+      this.s,
+      this.approvedOnChain,
+      this.cancelled,
+      this.finalized,
+      this.markedInvalid,
+      this.prefixedHash});
 
   SellOrders.fromJson(Map<String, dynamic> json) {
     createdDate = json['created_date'];
@@ -783,9 +784,8 @@ class SellOrders {
     expirationTime = json['expiration_time'];
     listingTime = json['listing_time'];
     orderHash = json['order_hash'];
-    metadata = json['metadata'] != null
-        ? Metadata.fromJson(json['metadata'])
-        : null;
+    metadata =
+        json['metadata'] != null ? Metadata.fromJson(json['metadata']) : null;
     exchange = json['exchange'];
     maker = json['maker'] != null ? Maker.fromJson(json['maker']) : null;
     taker = json['taker'] != null ? Maker.fromJson(json['taker']) : null;
@@ -889,14 +889,14 @@ class SellOrders {
     return 'SellOrders{createdDate: $createdDate, closingDate: $closingDate, closingExtendable: $closingExtendable, expirationTime: $expirationTime, listingTime: $listingTime, orderHash: $orderHash, metadata: $metadata, exchange: $exchange, maker: $maker, taker: $taker, currentPrice: $currentPrice, currentBounty: $currentBounty, bountyMultiple: $bountyMultiple, makerRelayerFee: $makerRelayerFee, takerRelayerFee: $takerRelayerFee, makerProtocolFee: $makerProtocolFee, takerProtocolFee: $takerProtocolFee, makerReferrerFee: $makerReferrerFee, feeRecipient: $feeRecipient, feeMethod: $feeMethod, side: $side, saleKind: $saleKind, target: $target, howToCall: $howToCall, calldata: $calldata, replacementPattern: $replacementPattern, staticTarget: $staticTarget, staticExtradata: $staticExtradata, paymentToken: $paymentToken, paymentTokenContract: $paymentTokenContract, basePrice: $basePrice, extra: $extra, quantity: $quantity, salt: $salt, v: $v, r: $r, s: $s, approvedOnChain: $approvedOnChain, cancelled: $cancelled, finalized: $finalized, markedInvalid: $markedInvalid, prefixedHash: $prefixedHash}';
   }
 }
+
 class Metadata {
   Bundle? bundle;
 
   Metadata({this.bundle});
 
   Metadata.fromJson(Map<String, dynamic> json) {
-    bundle =
-    json['bundle'] != null ? Bundle.fromJson(json['bundle']) : null;
+    bundle = json['bundle'] != null ? Bundle.fromJson(json['bundle']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -912,6 +912,7 @@ class Metadata {
     return 'Metadata{bundle: $bundle}';
   }
 }
+
 class Bundle {
   List<Assets>? assets;
   List<String>? schemas;
@@ -948,6 +949,7 @@ class Bundle {
     return 'Bundle{assets: $assets, schemas: $schemas, name: $name, description: $description}';
   }
 }
+
 class PaymentTokenContract {
   int? id;
   String? symbol;
@@ -960,13 +962,13 @@ class PaymentTokenContract {
 
   PaymentTokenContract(
       {this.id,
-        this.symbol,
-        this.address,
-        this.imageUrl,
-        this.name,
-        this.decimals,
-        this.ethPrice,
-        this.usdPrice});
+      this.symbol,
+      this.address,
+      this.imageUrl,
+      this.name,
+      this.decimals,
+      this.ethPrice,
+      this.usdPrice});
 
   PaymentTokenContract.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -997,4 +999,3 @@ class PaymentTokenContract {
     return 'PaymentTokenContract{id: $id, symbol: $symbol, address: $address, imageUrl: $imageUrl, name: $name, decimals: $decimals, ethPrice: $ethPrice, usdPrice: $usdPrice}';
   }
 }
-

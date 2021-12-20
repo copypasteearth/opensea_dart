@@ -1,7 +1,8 @@
 name: opensea_dart
-description: dart wrapper for opensea REST API
+description: dart wrapper for opensea REST API the api for NFT's through OpenSea, made for dart and flutter
 version: 0.0.1
-homepage:
+homepage: https://github.com/copypasteearth/opensea_dart
+repository: https://github.com/copypasteearth/opensea_dart
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

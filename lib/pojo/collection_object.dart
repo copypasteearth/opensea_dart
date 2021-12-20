@@ -1,18 +1,17 @@
-class CollectionListObject{
+class CollectionListObject {
   List<Collection>? collections;
 
   CollectionListObject({this.collections});
 
-  CollectionListObject.fromJson(Map<String,dynamic> json){
-    if(json["collections"] != null){
+  CollectionListObject.fromJson(Map<String, dynamic> json) {
+    if (json["collections"] != null) {
       collections = [];
       json["collections"].forEach((v) {
         collections!.add(Collection.fromJson(v));
       });
     }
-
   }
-  CollectionListObject.fromJsonList(List<dynamic> json){
+  CollectionListObject.fromJsonList(List<dynamic> json) {
     collections = [];
     for (var element in json) {
       collections!.add(Collection.fromJson(element));
@@ -38,7 +37,9 @@ class CollectionObject {
   CollectionObject({this.collection});
 
   CollectionObject.fromJson(Map<String, dynamic> json) {
-    collection = json['collection'] != null ? Collection.fromJson(json['collection']) : null;
+    collection = json['collection'] != null
+        ? Collection.fromJson(json['collection'])
+        : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -92,20 +93,61 @@ class Collection {
   String? instagramUsername;
   String? wikiUrl;
 
-  Collection({this.editors, this.paymentTokens, this.primaryAssetContracts, this.traits, this.stats, this.bannerImageUrl, this.chatUrl, this.createdDate, this.defaultToFiat, this.description, this.devBuyerFeeBasisPoints, this.devSellerFeeBasisPoints, this.discordUrl, this.displayData, this.externalUrl, this.featured, this.featuredImageUrl, this.hidden, this.safelistRequestStatus, this.imageUrl, this.isSubjectToWhitelist, this.largeImageUrl, this.mediumUsername, this.name, this.onlyProxiedTransfers, this.openseaBuyerFeeBasisPoints, this.openseaSellerFeeBasisPoints, this.payoutAddress, this.requireEmail, this.shortDescription, this.slug, this.telegramUrl, this.twitterUsername, this.instagramUsername, this.wikiUrl});
+  Collection(
+      {this.editors,
+      this.paymentTokens,
+      this.primaryAssetContracts,
+      this.traits,
+      this.stats,
+      this.bannerImageUrl,
+      this.chatUrl,
+      this.createdDate,
+      this.defaultToFiat,
+      this.description,
+      this.devBuyerFeeBasisPoints,
+      this.devSellerFeeBasisPoints,
+      this.discordUrl,
+      this.displayData,
+      this.externalUrl,
+      this.featured,
+      this.featuredImageUrl,
+      this.hidden,
+      this.safelistRequestStatus,
+      this.imageUrl,
+      this.isSubjectToWhitelist,
+      this.largeImageUrl,
+      this.mediumUsername,
+      this.name,
+      this.onlyProxiedTransfers,
+      this.openseaBuyerFeeBasisPoints,
+      this.openseaSellerFeeBasisPoints,
+      this.payoutAddress,
+      this.requireEmail,
+      this.shortDescription,
+      this.slug,
+      this.telegramUrl,
+      this.twitterUsername,
+      this.instagramUsername,
+      this.wikiUrl});
 
   Collection.fromJson(Map<String, dynamic> json) {
     if (json['editors'] != null) {
       editors = [];
-      json['editors'].forEach((v) { editors!.add(v); });
+      json['editors'].forEach((v) {
+        editors!.add(v);
+      });
     }
     if (json['payment_tokens'] != null) {
       paymentTokens = [];
-      json['payment_tokens'].forEach((v) { paymentTokens!.add(v); });
+      json['payment_tokens'].forEach((v) {
+        paymentTokens!.add(v);
+      });
     }
     if (json['primary_asset_contracts'] != null) {
       primaryAssetContracts = [];
-      json['primary_asset_contracts'].forEach((v) { primaryAssetContracts!.add(v); });
+      json['primary_asset_contracts'].forEach((v) {
+        primaryAssetContracts!.add(v);
+      });
     }
     traits = json['traits'] != null ? Traits(data: json['traits']) : null;
     stats = json['stats'] != null ? Stats.fromJson(json['stats']) : null;
@@ -117,7 +159,9 @@ class Collection {
     devBuyerFeeBasisPoints = json['dev_buyer_fee_basis_points'];
     devSellerFeeBasisPoints = json['dev_seller_fee_basis_points'];
     discordUrl = json['discord_url'];
-    displayData = json['display_data'] != null ? Traits(data: json['display_data']) : null;
+    displayData = json['display_data'] != null
+        ? Traits(data: json['display_data'])
+        : null;
     externalUrl = json['external_url'];
     featured = json['featured'];
     featuredImageUrl = json['featured_image_url'];
@@ -150,7 +194,8 @@ class Collection {
       data['payment_tokens'] = paymentTokens!.map((v) => v).toList();
     }
     if (primaryAssetContracts != null) {
-      data['primary_asset_contracts'] = primaryAssetContracts!.map((v) => v).toList();
+      data['primary_asset_contracts'] =
+          primaryAssetContracts!.map((v) => v).toList();
     }
     if (traits != null) {
       data['traits'] = traits!.toJson();
@@ -204,11 +249,9 @@ class Traits {
 
   Traits({this.data});
 
-
-
-Map<String, dynamic> toJson() {
-  return data!;
-}
+  Map<String, dynamic> toJson() {
+    return data!;
+  }
 
   @override
   String toString() {
@@ -239,7 +282,28 @@ class Stats {
   double? marketCap;
   double? floorPrice;
 
-  Stats({this.oneDayVolume, this.oneDayChange, this.oneDaySales, this.oneDayAveragePrice, this.sevenDayVolume, this.sevenDayChange, this.sevenDaySales, this.sevenDayAveragePrice, this.thirtyDayVolume, this.thirtyDayChange, this.thirtyDaySales, this.thirtyDayAveragePrice, this.totalVolume, this.totalSales, this.totalSupply, this.count, this.numOwners, this.averagePrice, this.numReports, this.marketCap, this.floorPrice});
+  Stats(
+      {this.oneDayVolume,
+      this.oneDayChange,
+      this.oneDaySales,
+      this.oneDayAveragePrice,
+      this.sevenDayVolume,
+      this.sevenDayChange,
+      this.sevenDaySales,
+      this.sevenDayAveragePrice,
+      this.thirtyDayVolume,
+      this.thirtyDayChange,
+      this.thirtyDaySales,
+      this.thirtyDayAveragePrice,
+      this.totalVolume,
+      this.totalSales,
+      this.totalSupply,
+      this.count,
+      this.numOwners,
+      this.averagePrice,
+      this.numReports,
+      this.marketCap,
+      this.floorPrice});
 
   Stats.fromJson(Map<String, dynamic> json) {
     oneDayVolume = json['one_day_volume'];
@@ -296,6 +360,3 @@ class Stats {
     return 'Stats{oneDayVolume: $oneDayVolume, oneDayChange: $oneDayChange, oneDaySales: $oneDaySales, oneDayAveragePrice: $oneDayAveragePrice, sevenDayVolume: $sevenDayVolume, sevenDayChange: $sevenDayChange, sevenDaySales: $sevenDaySales, sevenDayAveragePrice: $sevenDayAveragePrice, thirtyDayVolume: $thirtyDayVolume, thirtyDayChange: $thirtyDayChange, thirtyDaySales: $thirtyDaySales, thirtyDayAveragePrice: $thirtyDayAveragePrice, totalVolume: $totalVolume, totalSales: $totalSales, totalSupply: $totalSupply, count: $count, numOwners: $numOwners, averagePrice: $averagePrice, numReports: $numReports, marketCap: $marketCap, floorPrice: $floorPrice}';
   }
 }
-
-
-
