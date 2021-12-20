@@ -1,11 +1,12 @@
 
+import 'package:opensea_dart/enums/enums.dart';
 import 'package:opensea_dart/opensea_dart.dart';
 import 'package:opensea_dart/pojo/assets_object.dart' as asssetObject;
 import 'package:opensea_dart/pojo/collection_object.dart' as collectionObject;
 
 void main() {
 
-    final openSea = OpenSea();
+    final openSea = OpenSea(null);
     openSea.getCollection("doodles-official").then((value){
         collectionObject.Collection? collect = value.collection;
         if(collect != null){
@@ -15,10 +16,10 @@ void main() {
 
 
     });
-    openSea.getAssets("",null,"0x6a01775b369affe2145a0e0be88879dd3cda388f").then((value){
+    openSea.getAssets("",null,null,null,OrderBy.sale_date,OrderDirection.asc,"1","1","doodles-official").then((value){
        List<asssetObject.Assets>? assets = value.assets;
        if(assets != null){
-           print(assets);
+           assets.forEach((element) {print(element.lastSale);});
        }
 
     });
