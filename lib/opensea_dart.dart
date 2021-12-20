@@ -81,10 +81,8 @@ class OpenSea {
 
     var decode = jsonDecode(response.body);
     if(decode is Map){
-      print("making map version");
       return CollectionListObject.fromJson(jsonDecode(response.body));
     }else{
-      print("making list version");
       return CollectionListObject.fromJsonList(jsonDecode(response.body));
     }
 
@@ -93,8 +91,6 @@ class OpenSea {
 
     var url = Uri.parse('https://api.opensea.io/api/v1/collection/$collection');
     var response = await http.get(url,headers: headers);
-    //print(response.statusCode);
-    //print(response.body);
 
     return CollectionObject.fromJson(jsonDecode(response.body));
   }
@@ -154,7 +150,7 @@ class OpenSea {
       queryParameters: queryParameters,
     );
     var response = await http.get(uri,headers: headers);
-    //print(response.body);
+
     return SingleAssetObject.fromJson(jsonDecode(response.body));
   }
   Future<ContractObject> getContract(String assetContractAddress)async{

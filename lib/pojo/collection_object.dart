@@ -13,11 +13,9 @@ class CollectionListObject{
 
   }
   CollectionListObject.fromJsonList(List<dynamic> json){
-    if(json != null){
-      collections = [];
-      json.forEach((element) {
-        collections!.add(Collection.fromJson(element));
-      });
+    collections = [];
+    for (var element in json) {
+      collections!.add(Collection.fromJson(element));
     }
   }
   Map<String, dynamic> toJson() {
@@ -40,13 +38,13 @@ class CollectionObject {
   CollectionObject({this.collection});
 
   CollectionObject.fromJson(Map<String, dynamic> json) {
-    collection = json['collection'] != null ? new Collection.fromJson(json['collection']) : null;
+    collection = json['collection'] != null ? Collection.fromJson(json['collection']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.collection != null) {
-      data['collection'] = this.collection!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (collection != null) {
+      data['collection'] = collection!.toJson();
     }
     return data;
   }
@@ -109,8 +107,8 @@ class Collection {
       primaryAssetContracts = [];
       json['primary_asset_contracts'].forEach((v) { primaryAssetContracts!.add(v); });
     }
-    traits = json['traits'] != null ? new Traits.fromJson(json['traits']) : null;
-    stats = json['stats'] != null ? new Stats.fromJson(json['stats']) : null;
+    traits = json['traits'] != null ? Traits(data: json['traits']) : null;
+    stats = json['stats'] != null ? Stats.fromJson(json['stats']) : null;
     bannerImageUrl = json['banner_image_url'];
     chatUrl = json['chat_url'];
     createdDate = json['created_date'];
@@ -119,7 +117,7 @@ class Collection {
     devBuyerFeeBasisPoints = json['dev_buyer_fee_basis_points'];
     devSellerFeeBasisPoints = json['dev_seller_fee_basis_points'];
     discordUrl = json['discord_url'];
-    displayData = json['display_data'] != null ? new Traits.fromJson(json['display_data']) : null;
+    displayData = json['display_data'] != null ? Traits(data: json['display_data']) : null;
     externalUrl = json['external_url'];
     featured = json['featured'];
     featuredImageUrl = json['featured_image_url'];
@@ -144,54 +142,54 @@ class Collection {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.editors != null) {
-      data['editors'] = this.editors!.map((v) => v).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (editors != null) {
+      data['editors'] = editors!.map((v) => v).toList();
     }
-    if (this.paymentTokens != null) {
-      data['payment_tokens'] = this.paymentTokens!.map((v) => v).toList();
+    if (paymentTokens != null) {
+      data['payment_tokens'] = paymentTokens!.map((v) => v).toList();
     }
-    if (this.primaryAssetContracts != null) {
-      data['primary_asset_contracts'] = this.primaryAssetContracts!.map((v) => v).toList();
+    if (primaryAssetContracts != null) {
+      data['primary_asset_contracts'] = primaryAssetContracts!.map((v) => v).toList();
     }
-    if (this.traits != null) {
-      data['traits'] = this.traits!.toJson();
+    if (traits != null) {
+      data['traits'] = traits!.toJson();
     }
-    if (this.stats != null) {
-      data['stats'] = this.stats!.toJson();
+    if (stats != null) {
+      data['stats'] = stats!.toJson();
     }
-    data['banner_image_url'] = this.bannerImageUrl;
-    data['chat_url'] = this.chatUrl;
-    data['created_date'] = this.createdDate;
-    data['default_to_fiat'] = this.defaultToFiat;
-    data['description'] = this.description;
-    data['dev_buyer_fee_basis_points'] = this.devBuyerFeeBasisPoints;
-    data['dev_seller_fee_basis_points'] = this.devSellerFeeBasisPoints;
-    data['discord_url'] = this.discordUrl;
-    if (this.displayData != null) {
-      data['display_data'] = this.displayData!.toJson();
+    data['banner_image_url'] = bannerImageUrl;
+    data['chat_url'] = chatUrl;
+    data['created_date'] = createdDate;
+    data['default_to_fiat'] = defaultToFiat;
+    data['description'] = description;
+    data['dev_buyer_fee_basis_points'] = devBuyerFeeBasisPoints;
+    data['dev_seller_fee_basis_points'] = devSellerFeeBasisPoints;
+    data['discord_url'] = discordUrl;
+    if (displayData != null) {
+      data['display_data'] = displayData!.toJson();
     }
-    data['external_url'] = this.externalUrl;
-    data['featured'] = this.featured;
-    data['featured_image_url'] = this.featuredImageUrl;
-    data['hidden'] = this.hidden;
-    data['safelist_request_status'] = this.safelistRequestStatus;
-    data['image_url'] = this.imageUrl;
-    data['is_subject_to_whitelist'] = this.isSubjectToWhitelist;
-    data['large_image_url'] = this.largeImageUrl;
-    data['medium_username'] = this.mediumUsername;
-    data['name'] = this.name;
-    data['only_proxied_transfers'] = this.onlyProxiedTransfers;
-    data['opensea_buyer_fee_basis_points'] = this.openseaBuyerFeeBasisPoints;
-    data['opensea_seller_fee_basis_points'] = this.openseaSellerFeeBasisPoints;
-    data['payout_address'] = this.payoutAddress;
-    data['require_email'] = this.requireEmail;
-    data['short_description'] = this.shortDescription;
-    data['slug'] = this.slug;
-    data['telegram_url'] = this.telegramUrl;
-    data['twitter_username'] = this.twitterUsername;
-    data['instagram_username'] = this.instagramUsername;
-    data['wiki_url'] = this.wikiUrl;
+    data['external_url'] = externalUrl;
+    data['featured'] = featured;
+    data['featured_image_url'] = featuredImageUrl;
+    data['hidden'] = hidden;
+    data['safelist_request_status'] = safelistRequestStatus;
+    data['image_url'] = imageUrl;
+    data['is_subject_to_whitelist'] = isSubjectToWhitelist;
+    data['large_image_url'] = largeImageUrl;
+    data['medium_username'] = mediumUsername;
+    data['name'] = name;
+    data['only_proxied_transfers'] = onlyProxiedTransfers;
+    data['opensea_buyer_fee_basis_points'] = openseaBuyerFeeBasisPoints;
+    data['opensea_seller_fee_basis_points'] = openseaSellerFeeBasisPoints;
+    data['payout_address'] = payoutAddress;
+    data['require_email'] = requireEmail;
+    data['short_description'] = shortDescription;
+    data['slug'] = slug;
+    data['telegram_url'] = telegramUrl;
+    data['twitter_username'] = twitterUsername;
+    data['instagram_username'] = instagramUsername;
+    data['wiki_url'] = wikiUrl;
     return data;
   }
 
@@ -206,9 +204,7 @@ class Traits {
 
   Traits({this.data});
 
-Traits.fromJson(Map<String, dynamic> json) {
-  data = json;
-}
+
 
 Map<String, dynamic> toJson() {
   return data!;
@@ -270,28 +266,28 @@ class Stats {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['one_day_volume'] = this.oneDayVolume;
-    data['one_day_change'] = this.oneDayChange;
-    data['one_day_sales'] = this.oneDaySales;
-    data['one_day_average_price'] = this.oneDayAveragePrice;
-    data['seven_day_volume'] = this.sevenDayVolume;
-    data['seven_day_change'] = this.sevenDayChange;
-    data['seven_day_sales'] = this.sevenDaySales;
-    data['seven_day_average_price'] = this.sevenDayAveragePrice;
-    data['thirty_day_volume'] = this.thirtyDayVolume;
-    data['thirty_day_change'] = this.thirtyDayChange;
-    data['thirty_day_sales'] = this.thirtyDaySales;
-    data['thirty_day_average_price'] = this.thirtyDayAveragePrice;
-    data['total_volume'] = this.totalVolume;
-    data['total_sales'] = this.totalSales;
-    data['total_supply'] = this.totalSupply;
-    data['count'] = this.count;
-    data['num_owners'] = this.numOwners;
-    data['average_price'] = this.averagePrice;
-    data['num_reports'] = this.numReports;
-    data['market_cap'] = this.marketCap;
-    data['floor_price'] = this.floorPrice;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['one_day_volume'] = oneDayVolume;
+    data['one_day_change'] = oneDayChange;
+    data['one_day_sales'] = oneDaySales;
+    data['one_day_average_price'] = oneDayAveragePrice;
+    data['seven_day_volume'] = sevenDayVolume;
+    data['seven_day_change'] = sevenDayChange;
+    data['seven_day_sales'] = sevenDaySales;
+    data['seven_day_average_price'] = sevenDayAveragePrice;
+    data['thirty_day_volume'] = thirtyDayVolume;
+    data['thirty_day_change'] = thirtyDayChange;
+    data['thirty_day_sales'] = thirtyDaySales;
+    data['thirty_day_average_price'] = thirtyDayAveragePrice;
+    data['total_volume'] = totalVolume;
+    data['total_sales'] = totalSales;
+    data['total_supply'] = totalSupply;
+    data['count'] = count;
+    data['num_owners'] = numOwners;
+    data['average_price'] = averagePrice;
+    data['num_reports'] = numReports;
+    data['market_cap'] = marketCap;
+    data['floor_price'] = floorPrice;
     return data;
   }
 

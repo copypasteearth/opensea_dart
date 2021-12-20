@@ -7,15 +7,15 @@ class AssetsObject {
     if (json['assets'] != null) {
       assets = [];
       json['assets'].forEach((v) {
-        assets!.add(new Assets.fromJson(v));
+        assets!.add(Assets.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    if (this.assets != null) {
-      data['assets'] = this.assets!.map((v) => v.toJson()).toList();
+    if (assets != null) {
+      data['assets'] = assets!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -30,7 +30,7 @@ class Assets {
   String? id;
   String? tokenId;
   int? numSales;
-  dynamic? backgroundColor;
+  dynamic backgroundColor;
   String? imageUrl;
   String? imagePreviewUrl;
   String? imageThumbnailUrl;
@@ -46,15 +46,15 @@ class Assets {
   int? decimals;
   String? tokenMetadata;
   Owner? owner;
-  dynamic? sellOrders;
+  dynamic sellOrders;
   Owner? creator;
   List<Traits>? traits;
-  dynamic? lastSale;
-  dynamic? topBid;
-  dynamic? listingDate;
+  dynamic lastSale;
+  dynamic topBid;
+  dynamic listingDate;
   bool? isPresale;
-  dynamic? transferFeePaymentToken;
-  dynamic? transferFee;
+  dynamic transferFeePaymentToken;
+  dynamic transferFee;
 
   Assets(
       {this.id,
@@ -107,22 +107,22 @@ class Assets {
     description = json['description'];
     externalLink = json['external_link'];
     assetContract = json['asset_contract'] != null
-        ? new AssetContract.fromJson(json['asset_contract'])
+        ? AssetContract.fromJson(json['asset_contract'])
         : null;
     permalink = json['permalink'];
     collection = json['collection'] != null
-        ? new Collection.fromJson(json['collection'])
+        ? Collection.fromJson(json['collection'])
         : null;
     decimals = json['decimals'];
     tokenMetadata = json['token_metadata'];
-    owner = json['owner'] != null ? new Owner.fromJson(json['owner']) : null;
+    owner = json['owner'] != null ? Owner.fromJson(json['owner']) : null;
     sellOrders = json['sell_orders'];
     creator =
-    json['creator'] != null ? new Owner.fromJson(json['creator']) : null;
+    json['creator'] != null ? Owner.fromJson(json['creator']) : null;
     if (json['traits'] != null) {
       traits = [];
       json['traits'].forEach((v) {
-        traits!.add(new Traits.fromJson(v));
+        traits!.add(Traits.fromJson(v));
       });
     }
     lastSale = json['last_sale'];
@@ -134,45 +134,45 @@ class Assets {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['token_id'] = this.tokenId;
-    data['num_sales'] = this.numSales;
-    data['background_color'] = this.backgroundColor;
-    data['image_url'] = this.imageUrl;
-    data['image_preview_url'] = this.imagePreviewUrl;
-    data['image_thumbnail_url'] = this.imageThumbnailUrl;
-    data['image_original_url'] = this.imageOriginalUrl;
-    data['animation_url'] = this.animationUrl;
-    data['animation_original_url'] = this.animationOriginalUrl;
-    data['name'] = this.name;
-    data['description'] = this.description;
-    data['external_link'] = this.externalLink;
-    if (this.assetContract != null) {
-      data['asset_contract'] = this.assetContract!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['token_id'] = tokenId;
+    data['num_sales'] = numSales;
+    data['background_color'] = backgroundColor;
+    data['image_url'] = imageUrl;
+    data['image_preview_url'] = imagePreviewUrl;
+    data['image_thumbnail_url'] = imageThumbnailUrl;
+    data['image_original_url'] = imageOriginalUrl;
+    data['animation_url'] = animationUrl;
+    data['animation_original_url'] = animationOriginalUrl;
+    data['name'] = name;
+    data['description'] = description;
+    data['external_link'] = externalLink;
+    if (assetContract != null) {
+      data['asset_contract'] = assetContract!.toJson();
     }
-    data['permalink'] = this.permalink;
-    if (this.collection != null) {
-      data['collection'] = this.collection!.toJson();
+    data['permalink'] = permalink;
+    if (collection != null) {
+      data['collection'] = collection!.toJson();
     }
-    data['decimals'] = this.decimals;
-    data['token_metadata'] = this.tokenMetadata;
-    if (this.owner != null) {
-      data['owner'] = this.owner!.toJson();
+    data['decimals'] = decimals;
+    data['token_metadata'] = tokenMetadata;
+    if (owner != null) {
+      data['owner'] = owner!.toJson();
     }
-    data['sell_orders'] = this.sellOrders;
-    if (this.creator != null) {
-      data['creator'] = this.creator!.toJson();
+    data['sell_orders'] = sellOrders;
+    if (creator != null) {
+      data['creator'] = creator!.toJson();
     }
-    if (this.traits != null) {
-      data['traits'] = this.traits!.map((v) => v.toJson()).toList();
+    if (traits != null) {
+      data['traits'] = traits!.map((v) => v.toJson()).toList();
     }
-    data['last_sale'] = this.lastSale;
-    data['top_bid'] = this.topBid;
-    data['listing_date'] = this.listingDate;
-    data['is_presale'] = this.isPresale;
-    data['transfer_fee_payment_token'] = this.transferFeePaymentToken;
-    data['transfer_fee'] = this.transferFee;
+    data['last_sale'] = lastSale;
+    data['top_bid'] = topBid;
+    data['listing_date'] = listingDate;
+    data['is_presale'] = isPresale;
+    data['transfer_fee_payment_token'] = transferFeePaymentToken;
+    data['transfer_fee'] = transferFee;
     return data;
   }
 
@@ -188,14 +188,14 @@ class AssetContract {
   String? createdDate;
   String? name;
   String? nftVersion;
-  dynamic? openseaVersion;
+  dynamic openseaVersion;
   int? owner;
   String? schemaName;
   String? symbol;
   String? totalSupply;
-  dynamic? description;
-  dynamic? externalLink;
-  dynamic? imageUrl;
+  dynamic description;
+  dynamic externalLink;
+  dynamic imageUrl;
   bool? defaultToFiat;
   int? devBuyerFeeBasisPoints;
   int? devSellerFeeBasisPoints;
@@ -204,7 +204,7 @@ class AssetContract {
   int? openseaSellerFeeBasisPoints;
   int? buyerFeeBasisPoints;
   int? sellerFeeBasisPoints;
-  dynamic? payoutAddress;
+  dynamic payoutAddress;
 
   AssetContract(
       {this.address,
@@ -256,29 +256,29 @@ class AssetContract {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['address'] = this.address;
-    data['asset_contract_type'] = this.assetContractType;
-    data['created_date'] = this.createdDate;
-    data['name'] = this.name;
-    data['nft_version'] = this.nftVersion;
-    data['opensea_version'] = this.openseaVersion;
-    data['owner'] = this.owner;
-    data['schema_name'] = this.schemaName;
-    data['symbol'] = this.symbol;
-    data['total_supply'] = this.totalSupply;
-    data['description'] = this.description;
-    data['external_link'] = this.externalLink;
-    data['image_url'] = this.imageUrl;
-    data['default_to_fiat'] = this.defaultToFiat;
-    data['dev_buyer_fee_basis_points'] = this.devBuyerFeeBasisPoints;
-    data['dev_seller_fee_basis_points'] = this.devSellerFeeBasisPoints;
-    data['only_proxied_transfers'] = this.onlyProxiedTransfers;
-    data['opensea_buyer_fee_basis_points'] = this.openseaBuyerFeeBasisPoints;
-    data['opensea_seller_fee_basis_points'] = this.openseaSellerFeeBasisPoints;
-    data['buyer_fee_basis_points'] = this.buyerFeeBasisPoints;
-    data['seller_fee_basis_points'] = this.sellerFeeBasisPoints;
-    data['payout_address'] = this.payoutAddress;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['address'] = address;
+    data['asset_contract_type'] = assetContractType;
+    data['created_date'] = createdDate;
+    data['name'] = name;
+    data['nft_version'] = nftVersion;
+    data['opensea_version'] = openseaVersion;
+    data['owner'] = owner;
+    data['schema_name'] = schemaName;
+    data['symbol'] = symbol;
+    data['total_supply'] = totalSupply;
+    data['description'] = description;
+    data['external_link'] = externalLink;
+    data['image_url'] = imageUrl;
+    data['default_to_fiat'] = defaultToFiat;
+    data['dev_buyer_fee_basis_points'] = devBuyerFeeBasisPoints;
+    data['dev_seller_fee_basis_points'] = devSellerFeeBasisPoints;
+    data['only_proxied_transfers'] = onlyProxiedTransfers;
+    data['opensea_buyer_fee_basis_points'] = openseaBuyerFeeBasisPoints;
+    data['opensea_seller_fee_basis_points'] = openseaSellerFeeBasisPoints;
+    data['buyer_fee_basis_points'] = buyerFeeBasisPoints;
+    data['seller_fee_basis_points'] = sellerFeeBasisPoints;
+    data['payout_address'] = payoutAddress;
     return data;
   }
 
@@ -289,36 +289,36 @@ class AssetContract {
 }
 
 class Collection {
-  dynamic? bannerImageUrl;
-  dynamic? chatUrl;
+  dynamic bannerImageUrl;
+  dynamic chatUrl;
   String? createdDate;
   bool? defaultToFiat;
-  dynamic? description;
+  dynamic description;
   String? devBuyerFeeBasisPoints;
   String? devSellerFeeBasisPoints;
-  dynamic? discordUrl;
+  dynamic discordUrl;
   DisplayData? displayData;
-  dynamic? externalUrl;
+  dynamic externalUrl;
   bool? featured;
-  dynamic? featuredImageUrl;
+  dynamic featuredImageUrl;
   bool? hidden;
   String? safelistRequestStatus;
-  dynamic? imageUrl;
+  dynamic imageUrl;
   bool? isSubjectToWhitelist;
-  dynamic? largeImageUrl;
-  dynamic? mediumUsername;
+  dynamic largeImageUrl;
+  dynamic mediumUsername;
   String? name;
   bool? onlyProxiedTransfers;
   String? openseaBuyerFeeBasisPoints;
   String? openseaSellerFeeBasisPoints;
-  dynamic? payoutAddress;
+  dynamic payoutAddress;
   bool? requireEmail;
-  dynamic? shortDescription;
+  dynamic shortDescription;
   String? slug;
-  dynamic? telegramUrl;
-  dynamic? twitterUsername;
-  dynamic? instagramUsername;
-  dynamic? wikiUrl;
+  dynamic telegramUrl;
+  dynamic twitterUsername;
+  dynamic instagramUsername;
+  dynamic wikiUrl;
 
   Collection(
       {this.bannerImageUrl,
@@ -362,7 +362,7 @@ class Collection {
     devSellerFeeBasisPoints = json['dev_seller_fee_basis_points'];
     discordUrl = json['discord_url'];
     displayData = json['display_data'] != null
-        ? new DisplayData.fromJson(json['display_data'])
+        ? DisplayData.fromJson(json['display_data'])
         : null;
     externalUrl = json['external_url'];
     featured = json['featured'];
@@ -388,39 +388,39 @@ class Collection {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['banner_image_url'] = this.bannerImageUrl;
-    data['chat_url'] = this.chatUrl;
-    data['created_date'] = this.createdDate;
-    data['default_to_fiat'] = this.defaultToFiat;
-    data['description'] = this.description;
-    data['dev_buyer_fee_basis_points'] = this.devBuyerFeeBasisPoints;
-    data['dev_seller_fee_basis_points'] = this.devSellerFeeBasisPoints;
-    data['discord_url'] = this.discordUrl;
-    if (this.displayData != null) {
-      data['display_data'] = this.displayData!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['banner_image_url'] = bannerImageUrl;
+    data['chat_url'] = chatUrl;
+    data['created_date'] = createdDate;
+    data['default_to_fiat'] = defaultToFiat;
+    data['description'] = description;
+    data['dev_buyer_fee_basis_points'] = devBuyerFeeBasisPoints;
+    data['dev_seller_fee_basis_points'] = devSellerFeeBasisPoints;
+    data['discord_url'] = discordUrl;
+    if (displayData != null) {
+      data['display_data'] = displayData!.toJson();
     }
-    data['external_url'] = this.externalUrl;
-    data['featured'] = this.featured;
-    data['featured_image_url'] = this.featuredImageUrl;
-    data['hidden'] = this.hidden;
-    data['safelist_request_status'] = this.safelistRequestStatus;
-    data['image_url'] = this.imageUrl;
-    data['is_subject_to_whitelist'] = this.isSubjectToWhitelist;
-    data['large_image_url'] = this.largeImageUrl;
-    data['medium_username'] = this.mediumUsername;
-    data['name'] = this.name;
-    data['only_proxied_transfers'] = this.onlyProxiedTransfers;
-    data['opensea_buyer_fee_basis_points'] = this.openseaBuyerFeeBasisPoints;
-    data['opensea_seller_fee_basis_points'] = this.openseaSellerFeeBasisPoints;
-    data['payout_address'] = this.payoutAddress;
-    data['require_email'] = this.requireEmail;
-    data['short_description'] = this.shortDescription;
-    data['slug'] = this.slug;
-    data['telegram_url'] = this.telegramUrl;
-    data['twitter_username'] = this.twitterUsername;
-    data['instagram_username'] = this.instagramUsername;
-    data['wiki_url'] = this.wikiUrl;
+    data['external_url'] = externalUrl;
+    data['featured'] = featured;
+    data['featured_image_url'] = featuredImageUrl;
+    data['hidden'] = hidden;
+    data['safelist_request_status'] = safelistRequestStatus;
+    data['image_url'] = imageUrl;
+    data['is_subject_to_whitelist'] = isSubjectToWhitelist;
+    data['large_image_url'] = largeImageUrl;
+    data['medium_username'] = mediumUsername;
+    data['name'] = name;
+    data['only_proxied_transfers'] = onlyProxiedTransfers;
+    data['opensea_buyer_fee_basis_points'] = openseaBuyerFeeBasisPoints;
+    data['opensea_seller_fee_basis_points'] = openseaSellerFeeBasisPoints;
+    data['payout_address'] = payoutAddress;
+    data['require_email'] = requireEmail;
+    data['short_description'] = shortDescription;
+    data['slug'] = slug;
+    data['telegram_url'] = telegramUrl;
+    data['twitter_username'] = twitterUsername;
+    data['instagram_username'] = instagramUsername;
+    data['wiki_url'] = wikiUrl;
     return data;
   }
 
@@ -447,10 +447,10 @@ class DisplayData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['card_display_style'] = this.cardDisplayStyle;
-    if (this.images != null) {
-      data['images'] = this.images!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['card_display_style'] = cardDisplayStyle;
+    if (images != null) {
+      data['images'] = images!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -470,20 +470,20 @@ class Owner {
   Owner({this.user, this.profileImgUrl, this.address, this.config});
 
   Owner.fromJson(Map<String, dynamic> json) {
-    user = json['user'] != null ? new User.fromJson(json['user']) : null;
+    user = json['user'] != null ? User.fromJson(json['user']) : null;
     profileImgUrl = json['profile_img_url'];
     address = json['address'];
     config = json['config'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.user != null) {
-      data['user'] = this.user!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (user != null) {
+      data['user'] = user!.toJson();
     }
-    data['profile_img_url'] = this.profileImgUrl;
-    data['address'] = this.address;
-    data['config'] = this.config;
+    data['profile_img_url'] = profileImgUrl;
+    data['address'] = address;
+    data['config'] = config;
     return data;
   }
 
@@ -494,7 +494,7 @@ class Owner {
 }
 
 class User {
-  dynamic? username;
+  dynamic username;
 
   User({this.username});
 
@@ -503,8 +503,8 @@ class User {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['username'] = this.username;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['username'] = username;
     return data;
   }
 
@@ -516,11 +516,11 @@ class User {
 
 class Traits {
   String? traitType;
-  dynamic? value;
-  dynamic? displayType;
-  dynamic? maxValue;
+  dynamic value;
+  dynamic displayType;
+  dynamic maxValue;
   int? traitCount;
-  dynamic? order;
+  dynamic order;
 
   Traits(
       {this.traitType,
@@ -540,13 +540,13 @@ class Traits {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['trait_type'] = this.traitType;
-    data['value'] = this.value;
-    data['display_type'] = this.displayType;
-    data['max_value'] = this.maxValue;
-    data['trait_count'] = this.traitCount;
-    data['order'] = this.order;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['trait_type'] = traitType;
+    data['value'] = value;
+    data['display_type'] = displayType;
+    data['max_value'] = maxValue;
+    data['trait_count'] = traitCount;
+    data['order'] = order;
     return data;
   }
 
@@ -564,15 +564,15 @@ class BundlesObject {
     if (json['bundles'] != null) {
       bundles = [];
       json['bundles'].forEach((v) {
-        bundles!.add(new Bundles.fromJson(v));
+        bundles!.add(Bundles.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    if (this.bundles != null) {
-      data['bundles'] = this.bundles!.map((v) => v.toJson()).toList();
+    if (bundles != null) {
+      data['bundles'] = bundles!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -605,48 +605,48 @@ class Bundles {
         this.sellOrders});
 
   Bundles.fromJson(Map<String, dynamic> json) {
-    maker = json['maker'] != null ? new Maker.fromJson(json['maker']) : null;
+    maker = json['maker'] != null ? Maker.fromJson(json['maker']) : null;
     slug = json['slug'];
     if (json['assets'] != null) {
       assets = [];
       json['assets'].forEach((v) {
-        assets!.add(new Assets.fromJson(v));
+        assets!.add(Assets.fromJson(v));
       });
     }
     name = json['name'];
     description = json['description'];
     externalLink = json['external_link'];
     assetContract = json['asset_contract'] != null
-        ? new AssetContract.fromJson(json['asset_contract'])
+        ? AssetContract.fromJson(json['asset_contract'])
         : null;
     permalink = json['permalink'];
     if (json['sell_orders'] != null) {
       sellOrders = [];
       json['sell_orders'].forEach((v) {
-        sellOrders!.add(new SellOrders.fromJson(v));
+        sellOrders!.add(SellOrders.fromJson(v));
       });
     }
 
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.maker != null) {
-      data['maker'] = this.maker!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (maker != null) {
+      data['maker'] = maker!.toJson();
     }
-    data['slug'] = this.slug;
-    if (this.assets != null) {
-      data['assets'] = this.assets!.map((v) => v.toJson()).toList();
+    data['slug'] = slug;
+    if (assets != null) {
+      data['assets'] = assets!.map((v) => v.toJson()).toList();
     }
-    data['name'] = this.name;
-    data['description'] = this.description;
-    data['external_link'] = this.externalLink;
-    if (this.assetContract != null) {
-      data['asset_contract'] = this.assetContract!.toJson();
+    data['name'] = name;
+    data['description'] = description;
+    data['external_link'] = externalLink;
+    if (assetContract != null) {
+      data['asset_contract'] = assetContract!.toJson();
     }
-    data['permalink'] = this.permalink;
-    if (this.sellOrders != null) {
-      data['sell_orders'] = this.sellOrders!.map((v) => v.toJson()).toList();
+    data['permalink'] = permalink;
+    if (sellOrders != null) {
+      data['sell_orders'] = sellOrders!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -657,7 +657,7 @@ class Bundles {
   }
 }
 class Maker {
-  dynamic? user;
+  dynamic user;
   String? profileImgUrl;
   String? address;
   String? config;
@@ -673,13 +673,13 @@ class Maker {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
 
-      data['user'] = this.user;
+      data['user'] = user;
 
-    data['profile_img_url'] = this.profileImgUrl;
-    data['address'] = this.address;
-    data['config'] = this.config;
+    data['profile_img_url'] = profileImgUrl;
+    data['address'] = address;
+    data['config'] = config;
     return data;
   }
 
@@ -784,11 +784,11 @@ class SellOrders {
     listingTime = json['listing_time'];
     orderHash = json['order_hash'];
     metadata = json['metadata'] != null
-        ? new Metadata.fromJson(json['metadata'])
+        ? Metadata.fromJson(json['metadata'])
         : null;
     exchange = json['exchange'];
-    maker = json['maker'] != null ? new Maker.fromJson(json['maker']) : null;
-    taker = json['taker'] != null ? new Maker.fromJson(json['taker']) : null;
+    maker = json['maker'] != null ? Maker.fromJson(json['maker']) : null;
+    taker = json['taker'] != null ? Maker.fromJson(json['taker']) : null;
     currentPrice = json['current_price'];
     currentBounty = json['current_bounty'];
     bountyMultiple = json['bounty_multiple'];
@@ -798,7 +798,7 @@ class SellOrders {
     takerProtocolFee = json['taker_protocol_fee'];
     makerReferrerFee = json['maker_referrer_fee'];
     feeRecipient = json['fee_recipient'] != null
-        ? new Maker.fromJson(json['fee_recipient'])
+        ? Maker.fromJson(json['fee_recipient'])
         : null;
     feeMethod = json['fee_method'];
     side = json['side'];
@@ -811,7 +811,7 @@ class SellOrders {
     staticExtradata = json['static_extradata'];
     paymentToken = json['payment_token'];
     paymentTokenContract = json['payment_token_contract'] != null
-        ? new PaymentTokenContract.fromJson(json['payment_token_contract'])
+        ? PaymentTokenContract.fromJson(json['payment_token_contract'])
         : null;
     basePrice = json['base_price'];
     extra = json['extra'];
@@ -828,59 +828,59 @@ class SellOrders {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['created_date'] = this.createdDate;
-    data['closing_date'] = this.closingDate;
-    data['closing_extendable'] = this.closingExtendable;
-    data['expiration_time'] = this.expirationTime;
-    data['listing_time'] = this.listingTime;
-    data['order_hash'] = this.orderHash;
-    if (this.metadata != null) {
-      data['metadata'] = this.metadata!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['created_date'] = createdDate;
+    data['closing_date'] = closingDate;
+    data['closing_extendable'] = closingExtendable;
+    data['expiration_time'] = expirationTime;
+    data['listing_time'] = listingTime;
+    data['order_hash'] = orderHash;
+    if (metadata != null) {
+      data['metadata'] = metadata!.toJson();
     }
-    data['exchange'] = this.exchange;
-    if (this.maker != null) {
-      data['maker'] = this.maker!.toJson();
+    data['exchange'] = exchange;
+    if (maker != null) {
+      data['maker'] = maker!.toJson();
     }
-    if (this.taker != null) {
-      data['taker'] = this.taker!.toJson();
+    if (taker != null) {
+      data['taker'] = taker!.toJson();
     }
-    data['current_price'] = this.currentPrice;
-    data['current_bounty'] = this.currentBounty;
-    data['bounty_multiple'] = this.bountyMultiple;
-    data['maker_relayer_fee'] = this.makerRelayerFee;
-    data['taker_relayer_fee'] = this.takerRelayerFee;
-    data['maker_protocol_fee'] = this.makerProtocolFee;
-    data['taker_protocol_fee'] = this.takerProtocolFee;
-    data['maker_referrer_fee'] = this.makerReferrerFee;
-    if (this.feeRecipient != null) {
-      data['fee_recipient'] = this.feeRecipient!.toJson();
+    data['current_price'] = currentPrice;
+    data['current_bounty'] = currentBounty;
+    data['bounty_multiple'] = bountyMultiple;
+    data['maker_relayer_fee'] = makerRelayerFee;
+    data['taker_relayer_fee'] = takerRelayerFee;
+    data['maker_protocol_fee'] = makerProtocolFee;
+    data['taker_protocol_fee'] = takerProtocolFee;
+    data['maker_referrer_fee'] = makerReferrerFee;
+    if (feeRecipient != null) {
+      data['fee_recipient'] = feeRecipient!.toJson();
     }
-    data['fee_method'] = this.feeMethod;
-    data['side'] = this.side;
-    data['sale_kind'] = this.saleKind;
-    data['target'] = this.target;
-    data['how_to_call'] = this.howToCall;
-    data['calldata'] = this.calldata;
-    data['replacement_pattern'] = this.replacementPattern;
-    data['static_target'] = this.staticTarget;
-    data['static_extradata'] = this.staticExtradata;
-    data['payment_token'] = this.paymentToken;
-    if (this.paymentTokenContract != null) {
-      data['payment_token_contract'] = this.paymentTokenContract!.toJson();
+    data['fee_method'] = feeMethod;
+    data['side'] = side;
+    data['sale_kind'] = saleKind;
+    data['target'] = target;
+    data['how_to_call'] = howToCall;
+    data['calldata'] = calldata;
+    data['replacement_pattern'] = replacementPattern;
+    data['static_target'] = staticTarget;
+    data['static_extradata'] = staticExtradata;
+    data['payment_token'] = paymentToken;
+    if (paymentTokenContract != null) {
+      data['payment_token_contract'] = paymentTokenContract!.toJson();
     }
-    data['base_price'] = this.basePrice;
-    data['extra'] = this.extra;
-    data['quantity'] = this.quantity;
-    data['salt'] = this.salt;
-    data['v'] = this.v;
-    data['r'] = this.r;
-    data['s'] = this.s;
-    data['approved_on_chain'] = this.approvedOnChain;
-    data['cancelled'] = this.cancelled;
-    data['finalized'] = this.finalized;
-    data['marked_invalid'] = this.markedInvalid;
-    data['prefixed_hash'] = this.prefixedHash;
+    data['base_price'] = basePrice;
+    data['extra'] = extra;
+    data['quantity'] = quantity;
+    data['salt'] = salt;
+    data['v'] = v;
+    data['r'] = r;
+    data['s'] = s;
+    data['approved_on_chain'] = approvedOnChain;
+    data['cancelled'] = cancelled;
+    data['finalized'] = finalized;
+    data['marked_invalid'] = markedInvalid;
+    data['prefixed_hash'] = prefixedHash;
     return data;
   }
 
@@ -896,13 +896,13 @@ class Metadata {
 
   Metadata.fromJson(Map<String, dynamic> json) {
     bundle =
-    json['bundle'] != null ? new Bundle.fromJson(json['bundle']) : null;
+    json['bundle'] != null ? Bundle.fromJson(json['bundle']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.bundle != null) {
-      data['bundle'] = this.bundle!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (bundle != null) {
+      data['bundle'] = bundle!.toJson();
     }
     return data;
   }
@@ -924,7 +924,7 @@ class Bundle {
     if (json['assets'] != null) {
       assets = [];
       json['assets'].forEach((v) {
-        assets!.add(new Assets.fromJson(v));
+        assets!.add(Assets.fromJson(v));
       });
     }
     schemas = json['schemas'].cast<String>();
@@ -933,13 +933,13 @@ class Bundle {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.assets != null) {
-      data['assets'] = this.assets!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (assets != null) {
+      data['assets'] = assets!.map((v) => v.toJson()).toList();
     }
-    data['schemas'] = this.schemas;
-    data['name'] = this.name;
-    data['description'] = this.description;
+    data['schemas'] = schemas;
+    data['name'] = name;
+    data['description'] = description;
     return data;
   }
 
@@ -980,15 +980,15 @@ class PaymentTokenContract {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['symbol'] = this.symbol;
-    data['address'] = this.address;
-    data['image_url'] = this.imageUrl;
-    data['name'] = this.name;
-    data['decimals'] = this.decimals;
-    data['eth_price'] = this.ethPrice;
-    data['usd_price'] = this.usdPrice;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['symbol'] = symbol;
+    data['address'] = address;
+    data['image_url'] = imageUrl;
+    data['name'] = name;
+    data['decimals'] = decimals;
+    data['eth_price'] = ethPrice;
+    data['usd_price'] = usdPrice;
     return data;
   }
 

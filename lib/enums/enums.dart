@@ -1,7 +1,7 @@
 class OrderBy {
-  static String get sale_date => "sale_date";
-  static String get sale_count => "sale_count";
-  static String get sale_price => "sale_price";
+  static String get saleDate => "sale_date";
+  static String get saleCount => "sale_count";
+  static String get salePrice => "sale_price";
 }
 
 class OrderDirection{
