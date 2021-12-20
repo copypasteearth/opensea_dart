@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:opensea_dart/pojo/assets_object.dart';
 import 'package:opensea_dart/pojo/collection_object.dart';
+import 'package:opensea_dart/pojo/single_asset_object.dart';
 
 /// A Calculator.
 class OpenSea {
@@ -19,6 +20,42 @@ class OpenSea {
   ///TODO pending API key to do testing
   String getEvents(){
     return "";
+  }
+  Future<BundlesObject> getBundles(bool? onSale, String? owner, String? assetContractAddress, List<String>? assetContractAddresses, List<String>? tokenIds, String? limit, String? offset)async{
+    var queryParameters = {"token_ids":[],"asset_contract_addresses":[],"offset":"0","limit":"20"};
+    if(owner != null && owner.isNotEmpty){
+      queryParameters["owner"] = owner;
+    }
+    if(onSale != null){
+      queryParameters["on_sale"] = onSale.toString();
+    }
+
+    if(offset != null && offset.isNotEmpty){
+      queryParameters["offset"] = offset;
+    }
+    if(limit != null && limit.isNotEmpty){
+      queryParameters["limit"] = limit;
+    }
+    if(tokenIds != null){
+      queryParameters["token_ids"] = tokenIds;
+    }
+    if(assetContractAddress != null){
+      queryParameters["asset_contract_address"] = assetContractAddress;
+    }
+    if(assetContractAddresses != null){
+      queryParameters["asset_contract_addresses"] = assetContractAddresses;
+    }
+    var uri = Uri(
+      scheme: 'https',
+      host: 'api.opensea.io',
+      path: '/api/v1/bundles',
+      fragment: '',
+      queryParameters: queryParameters,
+    );
+
+    var response = await http.get(uri,headers: headers);
+    return BundlesObject.fromJson(jsonDecode(response.body));
+
   }
   Future<CollectionListObject> getCollections(String? assetOwner, String? offset, String? limit)async{
     var queryParameters = {"offset":"0","limit":"300"};
@@ -101,5 +138,22 @@ class OpenSea {
     var response = await http.get(uri,headers: headers);
 
     return AssetsObject.fromJson(jsonDecode(response.body));
+  }
+  Future<SingleAssetObject> getAsset(String assetContractAddress, String tokenId, String? accountAddress)async{
+    var queryParameters = <String,dynamic>{};
+    if(accountAddress != null && accountAddress.isNotEmpty){
+      queryParameters["account_address"] = accountAddress;
+    }
+
+    var uri = Uri(
+      scheme: 'https',
+      host: 'api.opensea.io',
+      path: '/api/v1/asset/$assetContractAddress/$tokenId/',
+      fragment: '',
+      queryParameters: queryParameters,
+    );
+    var response = await http.get(uri,headers: headers);
+    //print(response.body);
+    return SingleAssetObject.fromJson(jsonDecode(response.body));
   }
 }
