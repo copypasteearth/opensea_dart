@@ -9,10 +9,16 @@ import 'package:opensea_dart/pojo/collection_object.dart' as collectionObject;
 void main() {
 
     final openSea = OpenSea(null);
-    openSea.getAsset("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb", "1", "0xb88f61e6fbda83fbfffabe364112137480398018").then((value)
+    openSea.getCollectionStats("copypasteearth").then((value) => print(value));
+    /*openSea.getContract("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb").then((value)
     {
         print(value);
-    });
+
+    });*/
+    /*openSea.getAsset("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb", "1", "0xb88f61e6fbda83fbfffabe364112137480398018").then((value)
+    {
+        print(value);
+    });*/
     /*openSea.getBundles(null, null, null, null, ["1","209"], "2", null).then((value)
     {
       List<asssetObject.Bundles>? bundles = value.bundles;

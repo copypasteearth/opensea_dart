@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:opensea_dart/pojo/assets_object.dart';
 import 'package:opensea_dart/pojo/collection_object.dart';
+import 'package:opensea_dart/pojo/contract_object.dart';
 import 'package:opensea_dart/pojo/single_asset_object.dart';
 
 /// A Calculator.
@@ -155,5 +156,27 @@ class OpenSea {
     var response = await http.get(uri,headers: headers);
     //print(response.body);
     return SingleAssetObject.fromJson(jsonDecode(response.body));
+  }
+  Future<ContractObject> getContract(String assetContractAddress)async{
+    var uri = Uri(
+      scheme: 'https',
+      host: 'api.opensea.io',
+      path: '/api/v1/asset_contract/$assetContractAddress/',
+      fragment: '',
+      queryParameters: null,
+    );
+    var response = await http.get(uri,headers: headers);
+    return ContractObject.fromJson(jsonDecode(response.body));
+  }
+  Future<Stats> getCollectionStats(String slug)async{
+    var uri = Uri(
+      scheme: 'https',
+      host: 'api.opensea.io',
+      path: '/api/v1/collection/$slug/stats',
+      fragment: '',
+      queryParameters: null,
+    );
+    var response = await http.get(uri,headers: headers);
+    return Stats.fromJson(jsonDecode(response.body)['stats']);
   }
 }
