@@ -15,29 +15,10 @@ and the Flutter guide for
 # OpenSea dart wrapper for use in dart and flutter applications
 
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+# donate to buy this developer a cup of coffee
 
-## Features
+[Donate](https://commerce.coinbase.com/checkout/f5231452-a3f0-4cfd-bfa7-f0275ec5990e)
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+# Check out my NFT's
 
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
-```dart
-const like = 'sample';
-```
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+[My NFT Collection](https://opensea.io/copypasteearth)
