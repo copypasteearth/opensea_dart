@@ -16,11 +16,47 @@ class OpenSea {
     }
 
   }
+  ///TODO pending API key to do testing
+  String getEvents(){
+    return "";
+  }
+  Future<CollectionListObject> getCollections(String? assetOwner, String? offset, String? limit)async{
+    var queryParameters = {"offset":"0","limit":"300"};
+    if(assetOwner != null && assetOwner.isNotEmpty){
+      queryParameters["asset_owner"] = assetOwner;
+    }
+    if(offset != null && offset.isNotEmpty){
+      queryParameters["offset"] = offset;
+    }
+    if(limit != null && limit.isNotEmpty){
+      queryParameters["limit"] = limit;
+    }
+    var uri = Uri(
+      scheme: 'https',
+      host: 'api.opensea.io',
+      path: '/api/v1/collections',
+      fragment: '',
+      queryParameters: queryParameters,
+    );
 
+    var response = await http.get(uri,headers: headers);
+
+    var decode = jsonDecode(response.body);
+    if(decode is Map){
+      print("making map version");
+      return CollectionListObject.fromJson(jsonDecode(response.body));
+    }else{
+      print("making list version");
+      return CollectionListObject.fromJsonList(jsonDecode(response.body));
+    }
+
+  }
   Future<CollectionObject> getCollection(String collection)async{
 
     var url = Uri.parse('https://api.opensea.io/api/v1/collection/$collection');
     var response = await http.get(url,headers: headers);
+    //print(response.statusCode);
+    //print(response.body);
 
     return CollectionObject.fromJson(jsonDecode(response.body));
   }

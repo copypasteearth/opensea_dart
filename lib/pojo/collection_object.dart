@@ -1,3 +1,39 @@
+class CollectionListObject{
+  List<Collection>? collections;
+
+  CollectionListObject({this.collections});
+
+  CollectionListObject.fromJson(Map<String,dynamic> json){
+    if(json["collections"] != null){
+      collections = [];
+      json["collections"].forEach((v) {
+        collections!.add(Collection.fromJson(v));
+      });
+    }
+
+  }
+  CollectionListObject.fromJsonList(List<dynamic> json){
+    if(json != null){
+      collections = [];
+      json.forEach((element) {
+        collections!.add(Collection.fromJson(element));
+      });
+    }
+  }
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (collections != null) {
+      data['collections'] = collections!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+
+  @override
+  String toString() {
+    return 'CollectionListObject{collections: $collections}';
+  }
+}
+
 class CollectionObject {
   Collection? collection;
 
@@ -230,7 +266,7 @@ class Stats {
     averagePrice = json['average_price'];
     numReports = json['num_reports'];
     marketCap = json['market_cap'];
-    floorPrice = json['floor_price'];
+    floorPrice = json['floor_price'].toDouble();
   }
 
   Map<String, dynamic> toJson() {
