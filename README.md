@@ -4,12 +4,24 @@
 # OpenSea dart wrapper for use in dart and flutter applications
 
 ## making progress, some functions are done but Im waiting for an API key to be able to test the calls that require an apikey. What is done will work with an api key just pass it to the constructor
+## what is not done is retrieving events,orders,  and testnet
+
 
 ## Quick Example
+```groovy
+dependencies:
+  opensea_dart: ^0.0.1
 
+```
 ```dart
+import 'package:opensea_dart/enums/enums.dart';
+import 'package:opensea_dart/opensea_dart.dart';
+import 'package:opensea_dart/pojo/assets_object.dart' as asset_object;
+import 'package:opensea_dart/pojo/collection_object.dart' as collection_object;
 
-final openSea = OpenSea(null);
+void main() {
+  String? apiKey;
+  final openSea = OpenSea(apiKey);
   openSea.getCollectionStats("copypasteearth").then((value) => print(value));
   openSea
       .getContract("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb")
@@ -57,6 +69,8 @@ final openSea = OpenSea(null);
       }
     }
   });
+}
+
 ```
 
 # donate to buy this developer a cup of coffee

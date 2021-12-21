@@ -4,7 +4,8 @@ import 'package:opensea_dart/pojo/assets_object.dart' as asset_object;
 import 'package:opensea_dart/pojo/collection_object.dart' as collection_object;
 
 void main() {
-  final openSea = OpenSea(null);
+  String? apiKey;
+  final openSea = OpenSea(apiKey);
   openSea.getCollectionStats("copypasteearth").then((value) => print(value));
   openSea
       .getContract("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb")
