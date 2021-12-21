@@ -4,4 +4,4 @@
 
 ## 0.0.2
 
-### finished all of api calls that require api key
+### finished all of api calls that require api key, testnet is the only thing not implemented

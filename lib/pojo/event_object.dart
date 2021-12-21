@@ -1,3 +1,5 @@
+/// EventObject class
+/// dart pojo for the method getEvents() contains events for assets
 class EventObject {
   List<AssetEvents>? assetEvents;
 
@@ -6,7 +8,9 @@ class EventObject {
   });
 
   EventObject.fromJson(Map<String, dynamic> json) {
-    assetEvents = (json['asset_events'] as List?)?.map((dynamic e) => AssetEvents.fromJson(e as Map<String,dynamic>)).toList();
+    assetEvents = (json['asset_events'] as List?)
+        ?.map((dynamic e) => AssetEvents.fromJson(e as Map<String, dynamic>))
+        .toList();
   }
 
   Map<String, dynamic> toJson() {
@@ -21,6 +25,8 @@ class EventObject {
   }
 }
 
+/// AssetEvents class
+/// contains details about an asset event
 class AssetEvents {
   dynamic approvedAccount;
   Asset? asset;
@@ -82,7 +88,9 @@ class AssetEvents {
 
   AssetEvents.fromJson(Map<String, dynamic> json) {
     approvedAccount = json['approved_account'];
-    asset = (json['asset'] as Map<String,dynamic>?) != null ? Asset.fromJson(json['asset'] as Map<String,dynamic>) : null;
+    asset = (json['asset'] as Map<String, dynamic>?) != null
+        ? Asset.fromJson(json['asset'] as Map<String, dynamic>)
+        : null;
     assetBundle = json['asset_bundle'];
     auctionType = json['auction_type'];
     bidAmount = json['bid_amount'];
@@ -95,7 +103,9 @@ class AssetEvents {
     duration = json['duration'];
     endingPrice = json['ending_price'] as String?;
     eventType = json['event_type'] as String?;
-    fromAccount = (json['from_account'] as Map<String,dynamic>?) != null ? FromAccount.fromJson(json['from_account'] as Map<String,dynamic>) : null;
+    fromAccount = (json['from_account'] as Map<String, dynamic>?) != null
+        ? FromAccount.fromJson(json['from_account'] as Map<String, dynamic>)
+        : null;
     id = json['id'] as int?;
     isPrivate = json['is_private'];
     ownerAccount = json['owner_account'];
@@ -148,6 +158,8 @@ class AssetEvents {
   }
 }
 
+/// Asset class
+/// asset for each event
 class Asset {
   int? id;
   String? tokenId;
@@ -205,12 +217,18 @@ class Asset {
     name = json['name'] as String?;
     description = json['description'] as String?;
     externalLink = json['external_link'];
-    assetContract = (json['asset_contract'] as Map<String,dynamic>?) != null ? AssetContract.fromJson(json['asset_contract'] as Map<String,dynamic>) : null;
+    assetContract = (json['asset_contract'] as Map<String, dynamic>?) != null
+        ? AssetContract.fromJson(json['asset_contract'] as Map<String, dynamic>)
+        : null;
     permalink = json['permalink'] as String?;
-    collection = (json['collection'] as Map<String,dynamic>?) != null ? Collection.fromJson(json['collection'] as Map<String,dynamic>) : null;
+    collection = (json['collection'] as Map<String, dynamic>?) != null
+        ? Collection.fromJson(json['collection'] as Map<String, dynamic>)
+        : null;
     decimals = json['decimals'];
     tokenMetadata = json['token_metadata'] as String?;
-    owner = (json['owner'] as Map<String,dynamic>?) != null ? Owner.fromJson(json['owner'] as Map<String,dynamic>) : null;
+    owner = (json['owner'] as Map<String, dynamic>?) != null
+        ? Owner.fromJson(json['owner'] as Map<String, dynamic>)
+        : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -243,6 +261,8 @@ class Asset {
   }
 }
 
+/// AssetContract class
+/// contains the events contract details for the asset
 class AssetContract {
   String? address;
   String? assetContractType;
@@ -311,7 +331,8 @@ class AssetContract {
     devSellerFeeBasisPoints = json['dev_seller_fee_basis_points'] as int?;
     onlyProxiedTransfers = json['only_proxied_transfers'] as bool?;
     openseaBuyerFeeBasisPoints = json['opensea_buyer_fee_basis_points'] as int?;
-    openseaSellerFeeBasisPoints = json['opensea_seller_fee_basis_points'] as int?;
+    openseaSellerFeeBasisPoints =
+        json['opensea_seller_fee_basis_points'] as int?;
     buyerFeeBasisPoints = json['buyer_fee_basis_points'] as int?;
     sellerFeeBasisPoints = json['seller_fee_basis_points'] as int?;
     payoutAddress = json['payout_address'] as String?;
@@ -350,6 +371,8 @@ class AssetContract {
   }
 }
 
+/// Collection class
+/// contains the collection details for the event
 class Collection {
   String? bannerImageUrl;
   dynamic chatUrl;
@@ -424,7 +447,9 @@ class Collection {
     devBuyerFeeBasisPoints = json['dev_buyer_fee_basis_points'] as String?;
     devSellerFeeBasisPoints = json['dev_seller_fee_basis_points'] as String?;
     discordUrl = json['discord_url'] as String?;
-    displayData = (json['display_data'] as Map<String,dynamic>?) != null ? DisplayData.fromJson(json['display_data'] as Map<String,dynamic>) : null;
+    displayData = (json['display_data'] as Map<String, dynamic>?) != null
+        ? DisplayData.fromJson(json['display_data'] as Map<String, dynamic>)
+        : null;
     externalUrl = json['external_url'];
     featured = json['featured'] as bool?;
     featuredImageUrl = json['featured_image_url'] as String?;
@@ -436,8 +461,10 @@ class Collection {
     mediumUsername = json['medium_username'];
     name = json['name'] as String?;
     onlyProxiedTransfers = json['only_proxied_transfers'] as bool?;
-    openseaBuyerFeeBasisPoints = json['opensea_buyer_fee_basis_points'] as String?;
-    openseaSellerFeeBasisPoints = json['opensea_seller_fee_basis_points'] as String?;
+    openseaBuyerFeeBasisPoints =
+        json['opensea_buyer_fee_basis_points'] as String?;
+    openseaSellerFeeBasisPoints =
+        json['opensea_seller_fee_basis_points'] as String?;
     payoutAddress = json['payout_address'] as String?;
     requireEmail = json['require_email'] as bool?;
     shortDescription = json['short_description'];
@@ -489,6 +516,8 @@ class Collection {
   }
 }
 
+/// DisplayData class
+/// contains the style of the data
 class DisplayData {
   String? cardDisplayStyle;
 
@@ -512,6 +541,8 @@ class DisplayData {
   }
 }
 
+/// Owner class
+/// contains data for the owner of the asset for the event
 class Owner {
   dynamic user;
   String? profileImgUrl;
@@ -547,6 +578,8 @@ class Owner {
   }
 }
 
+/// FromAccount class
+/// details about the account from which the event was initialized
 class FromAccount {
   dynamic user;
   String? profileImgUrl;

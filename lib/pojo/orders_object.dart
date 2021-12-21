@@ -1,3 +1,6 @@
+/// OrdersObject class
+/// dart pojo contsructed when calling the method getOrders()
+/// contains a list of orders and the count
 class OrdersObject {
   int? count;
   List<Orders>? orders;
@@ -9,7 +12,9 @@ class OrdersObject {
 
   OrdersObject.fromJson(Map<String, dynamic> json) {
     count = json['count'] as int?;
-    orders = (json['orders'] as List?)?.map((dynamic e) => Orders.fromJson(e as Map<String,dynamic>)).toList();
+    orders = (json['orders'] as List?)
+        ?.map((dynamic e) => Orders.fromJson(e as Map<String, dynamic>))
+        .toList();
   }
 
   Map<String, dynamic> toJson() {
@@ -25,6 +30,8 @@ class OrdersObject {
   }
 }
 
+/// Orders class
+/// contains the information about an order
 class Orders {
   int? id;
   Asset? asset;
@@ -122,7 +129,9 @@ class Orders {
 
   Orders.fromJson(Map<String, dynamic> json) {
     id = json['id'] as int?;
-    asset = (json['asset'] as Map<String,dynamic>?) != null ? Asset.fromJson(json['asset'] as Map<String,dynamic>) : null;
+    asset = (json['asset'] as Map<String, dynamic>?) != null
+        ? Asset.fromJson(json['asset'] as Map<String, dynamic>)
+        : null;
     assetBundle = json['asset_bundle'];
     createdDate = json['created_date'] as String?;
     closingDate = json['closing_date'] as String?;
@@ -130,10 +139,16 @@ class Orders {
     expirationTime = json['expiration_time'] as int?;
     listingTime = json['listing_time'] as int?;
     orderHash = json['order_hash'] as String?;
-    metadata = (json['metadata'] as Map<String,dynamic>?) != null ? Metadata.fromJson(json['metadata'] as Map<String,dynamic>) : null;
+    metadata = (json['metadata'] as Map<String, dynamic>?) != null
+        ? Metadata.fromJson(json['metadata'] as Map<String, dynamic>)
+        : null;
     exchange = json['exchange'] as String?;
-    maker = (json['maker'] as Map<String,dynamic>?) != null ? Maker.fromJson(json['maker'] as Map<String,dynamic>) : null;
-    taker = (json['taker'] as Map<String,dynamic>?) != null ? Taker.fromJson(json['taker'] as Map<String,dynamic>) : null;
+    maker = (json['maker'] as Map<String, dynamic>?) != null
+        ? Maker.fromJson(json['maker'] as Map<String, dynamic>)
+        : null;
+    taker = (json['taker'] as Map<String, dynamic>?) != null
+        ? Taker.fromJson(json['taker'] as Map<String, dynamic>)
+        : null;
     currentPrice = json['current_price'] as String?;
     currentBounty = json['current_bounty'] as String?;
     bountyMultiple = json['bounty_multiple'] as String?;
@@ -142,7 +157,9 @@ class Orders {
     makerProtocolFee = json['maker_protocol_fee'] as String?;
     takerProtocolFee = json['taker_protocol_fee'] as String?;
     makerReferrerFee = json['maker_referrer_fee'] as String?;
-    feeRecipient = (json['fee_recipient'] as Map<String,dynamic>?) != null ? FeeRecipient.fromJson(json['fee_recipient'] as Map<String,dynamic>) : null;
+    feeRecipient = (json['fee_recipient'] as Map<String, dynamic>?) != null
+        ? FeeRecipient.fromJson(json['fee_recipient'] as Map<String, dynamic>)
+        : null;
     feeMethod = json['fee_method'] as int?;
     side = json['side'] as int?;
     saleKind = json['sale_kind'] as int?;
@@ -153,7 +170,11 @@ class Orders {
     staticTarget = json['static_target'] as String?;
     staticExtradata = json['static_extradata'] as String?;
     paymentToken = json['payment_token'] as String?;
-    paymentTokenContract = (json['payment_token_contract'] as Map<String,dynamic>?) != null ? PaymentTokenContract.fromJson(json['payment_token_contract'] as Map<String,dynamic>) : null;
+    paymentTokenContract =
+        (json['payment_token_contract'] as Map<String, dynamic>?) != null
+            ? PaymentTokenContract.fromJson(
+                json['payment_token_contract'] as Map<String, dynamic>)
+            : null;
     basePrice = json['base_price'] as String?;
     extra = json['extra'] as String?;
     quantity = json['quantity'] as String?;
@@ -224,6 +245,8 @@ class Orders {
   }
 }
 
+/// Asset class
+/// contains information about an asset associated with an order
 class Asset {
   int? id;
   String? tokenId;
@@ -281,12 +304,18 @@ class Asset {
     name = json['name'] as String?;
     description = json['description'] as String?;
     externalLink = json['external_link'];
-    assetContract = (json['asset_contract'] as Map<String,dynamic>?) != null ? AssetContract.fromJson(json['asset_contract'] as Map<String,dynamic>) : null;
+    assetContract = (json['asset_contract'] as Map<String, dynamic>?) != null
+        ? AssetContract.fromJson(json['asset_contract'] as Map<String, dynamic>)
+        : null;
     permalink = json['permalink'] as String?;
-    collection = (json['collection'] as Map<String,dynamic>?) != null ? Collection.fromJson(json['collection'] as Map<String,dynamic>) : null;
+    collection = (json['collection'] as Map<String, dynamic>?) != null
+        ? Collection.fromJson(json['collection'] as Map<String, dynamic>)
+        : null;
     decimals = json['decimals'];
     tokenMetadata = json['token_metadata'];
-    owner = (json['owner'] as Map<String,dynamic>?) != null ? Owner.fromJson(json['owner'] as Map<String,dynamic>) : null;
+    owner = (json['owner'] as Map<String, dynamic>?) != null
+        ? Owner.fromJson(json['owner'] as Map<String, dynamic>)
+        : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -319,6 +348,8 @@ class Asset {
   }
 }
 
+/// AssetContract
+/// contains the contractual information about and asset in an order
 class AssetContract {
   String? address;
   String? assetContractType;
@@ -387,7 +418,8 @@ class AssetContract {
     devSellerFeeBasisPoints = json['dev_seller_fee_basis_points'] as int?;
     onlyProxiedTransfers = json['only_proxied_transfers'] as bool?;
     openseaBuyerFeeBasisPoints = json['opensea_buyer_fee_basis_points'] as int?;
-    openseaSellerFeeBasisPoints = json['opensea_seller_fee_basis_points'] as int?;
+    openseaSellerFeeBasisPoints =
+        json['opensea_seller_fee_basis_points'] as int?;
     buyerFeeBasisPoints = json['buyer_fee_basis_points'] as int?;
     sellerFeeBasisPoints = json['seller_fee_basis_points'] as int?;
     payoutAddress = json['payout_address'];
@@ -426,6 +458,8 @@ class AssetContract {
   }
 }
 
+/// Collection class
+/// contains information about the collection associated with the asset and order
 class Collection {
   String? bannerImageUrl;
   dynamic chatUrl;
@@ -500,7 +534,9 @@ class Collection {
     devBuyerFeeBasisPoints = json['dev_buyer_fee_basis_points'] as String?;
     devSellerFeeBasisPoints = json['dev_seller_fee_basis_points'] as String?;
     discordUrl = json['discord_url'];
-    displayData = (json['display_data'] as Map<String,dynamic>?) != null ? DisplayData.fromJson(json['display_data'] as Map<String,dynamic>) : null;
+    displayData = (json['display_data'] as Map<String, dynamic>?) != null
+        ? DisplayData.fromJson(json['display_data'] as Map<String, dynamic>)
+        : null;
     externalUrl = json['external_url'];
     featured = json['featured'] as bool?;
     featuredImageUrl = json['featured_image_url'] as String?;
@@ -512,8 +548,10 @@ class Collection {
     mediumUsername = json['medium_username'];
     name = json['name'] as String?;
     onlyProxiedTransfers = json['only_proxied_transfers'] as bool?;
-    openseaBuyerFeeBasisPoints = json['opensea_buyer_fee_basis_points'] as String?;
-    openseaSellerFeeBasisPoints = json['opensea_seller_fee_basis_points'] as String?;
+    openseaBuyerFeeBasisPoints =
+        json['opensea_buyer_fee_basis_points'] as String?;
+    openseaSellerFeeBasisPoints =
+        json['opensea_seller_fee_basis_points'] as String?;
     payoutAddress = json['payout_address'];
     requireEmail = json['require_email'] as bool?;
     shortDescription = json['short_description'];
@@ -565,6 +603,8 @@ class Collection {
   }
 }
 
+/// DisplayData class
+/// contains information on the display style
 class DisplayData {
   String? cardDisplayStyle;
 
@@ -588,6 +628,8 @@ class DisplayData {
   }
 }
 
+/// Owner class
+/// information about the owner of the asset in the order
 class Owner {
   User? user;
   String? profileImgUrl;
@@ -602,7 +644,9 @@ class Owner {
   });
 
   Owner.fromJson(Map<String, dynamic> json) {
-    user = (json['user'] as Map<String,dynamic>?) != null ? User.fromJson(json['user'] as Map<String,dynamic>) : null;
+    user = (json['user'] as Map<String, dynamic>?) != null
+        ? User.fromJson(json['user'] as Map<String, dynamic>)
+        : null;
     profileImgUrl = json['profile_img_url'] as String?;
     address = json['address'] as String?;
     config = json['config'] as String?;
@@ -623,8 +667,8 @@ class Owner {
   }
 }
 
-
-
+/// Metadata class
+/// contains quick data about order
 class Metadata {
   AssetMeta? asset;
   String? schema;
@@ -635,7 +679,9 @@ class Metadata {
   });
 
   Metadata.fromJson(Map<String, dynamic> json) {
-    asset = (json['asset'] as Map<String,dynamic>?) != null ? AssetMeta.fromJson(json['asset'] as Map<String,dynamic>) : null;
+    asset = (json['asset'] as Map<String, dynamic>?) != null
+        ? AssetMeta.fromJson(json['asset'] as Map<String, dynamic>)
+        : null;
     schema = json['schema'] as String?;
   }
 
@@ -652,6 +698,8 @@ class Metadata {
   }
 }
 
+/// AssetMeta class
+/// contains data about an asset
 class AssetMeta {
   String? id;
   String? address;
@@ -683,6 +731,8 @@ class AssetMeta {
   }
 }
 
+/// Maker class
+/// contains data about the maker of asset
 class Maker {
   User? user;
   String? profileImgUrl;
@@ -697,7 +747,9 @@ class Maker {
   });
 
   Maker.fromJson(Map<String, dynamic> json) {
-    user = (json['user'] as Map<String,dynamic>?) != null ? User.fromJson(json['user'] as Map<String,dynamic>) : null;
+    user = (json['user'] as Map<String, dynamic>?) != null
+        ? User.fromJson(json['user'] as Map<String, dynamic>)
+        : null;
     profileImgUrl = json['profile_img_url'] as String?;
     address = json['address'] as String?;
     config = json['config'] as String?;
@@ -718,6 +770,8 @@ class Maker {
   }
 }
 
+/// User class
+/// contains the username of a user
 class User {
   dynamic username;
 
@@ -741,6 +795,8 @@ class User {
   }
 }
 
+/// Taker
+/// information about the recieving end of a contract
 class Taker {
   User? user;
   String? profileImgUrl;
@@ -755,7 +811,9 @@ class Taker {
   });
 
   Taker.fromJson(Map<String, dynamic> json) {
-    user = (json['user'] as Map<String,dynamic>?) != null ? User.fromJson(json['user'] as Map<String,dynamic>) : null;
+    user = (json['user'] as Map<String, dynamic>?) != null
+        ? User.fromJson(json['user'] as Map<String, dynamic>)
+        : null;
     profileImgUrl = json['profile_img_url'] as String?;
     address = json['address'] as String?;
     config = json['config'] as String?;
@@ -776,8 +834,8 @@ class Taker {
   }
 }
 
-
-
+/// FeeReciepent class
+/// information about partys that recieved payment
 class FeeRecipient {
   User? user;
   String? profileImgUrl;
@@ -792,7 +850,9 @@ class FeeRecipient {
   });
 
   FeeRecipient.fromJson(Map<String, dynamic> json) {
-    user = (json['user'] as Map<String,dynamic>?) != null ? User.fromJson(json['user'] as Map<String,dynamic>) : null;
+    user = (json['user'] as Map<String, dynamic>?) != null
+        ? User.fromJson(json['user'] as Map<String, dynamic>)
+        : null;
     profileImgUrl = json['profile_img_url'] as String?;
     address = json['address'] as String?;
     config = json['config'] as String?;
@@ -813,8 +873,8 @@ class FeeRecipient {
   }
 }
 
-
-
+/// PaymentTokenContract class
+/// information about currency used
 class PaymentTokenContract {
   int? id;
   String? symbol;

@@ -1,15 +1,15 @@
-// To parse this JSON data, do
-//
-//     final singleAssetObject = singleAssetObjectFromJson(jsonString);
-
 import 'dart:convert';
 
+/// converts json string to SingleAssetObject
 SingleAssetObject singleAssetObjectFromJson(String str) =>
     SingleAssetObject.fromJson(json.decode(str));
 
+/// converts a SingleAsserObject to a string of json
 String singleAssetObjectToJson(SingleAssetObject data) =>
     json.encode(data.toJson());
 
+/// SingleAssetObject class
+/// called when a single asset is retrieved with getAsset() method
 class SingleAssetObject {
   SingleAssetObject({
     this.id,
@@ -197,6 +197,8 @@ class SingleAssetObject {
   }
 }
 
+/// AssetContract class
+/// information about the contract of an asset
 class AssetContract {
   AssetContract({
     this.address,
@@ -304,6 +306,8 @@ class AssetContract {
   }
 }
 
+/// Collection class
+/// information about the collection associated with the asset
 class Collection {
   Collection({
     this.paymentTokens,
@@ -476,6 +480,8 @@ class Collection {
   }
 }
 
+/// DisplayData class
+/// information about display style
 class DisplayData {
   DisplayData({
     this.cardDisplayStyle,
@@ -497,6 +503,8 @@ class DisplayData {
   }
 }
 
+/// PaymentTokenElement class
+/// information about payment
 class PaymentTokenElement {
   PaymentTokenElement({
     this.id,
@@ -547,6 +555,8 @@ class PaymentTokenElement {
   }
 }
 
+/// Traits class
+/// traits object
 class Traits {
   Traits();
 
@@ -560,6 +570,8 @@ class Traits {
   }
 }
 
+/// Creator class
+/// information about the creator of the asset
 class Creator {
   Creator({
     this.user,
@@ -593,6 +605,8 @@ class Creator {
   }
 }
 
+/// User class
+/// username of user associated with asset
 class User {
   User({
     this.username,
@@ -614,6 +628,8 @@ class User {
   }
 }
 
+/// LastSale class
+/// information about the last sale of the asset
 class LastSale {
   LastSale({
     this.asset,
@@ -679,6 +695,8 @@ class LastSale {
   }
 }
 
+/// Asset class
+/// quick reference to an asset
 class Asset {
   Asset({
     this.tokenId,
@@ -704,6 +722,8 @@ class Asset {
   }
 }
 
+/// LastSalePaymentToken class
+/// payment information about last payment
 class LastSalePaymentToken {
   LastSalePaymentToken({
     this.id,
@@ -754,6 +774,8 @@ class LastSalePaymentToken {
   }
 }
 
+/// Transaction class
+/// contains information about the transaction on the blockchain
 class Transaction {
   Transaction({
     this.blockHash,
@@ -809,6 +831,8 @@ class Transaction {
   }
 }
 
+/// Ownership class
+/// details about who owns the asset and how many
 class Ownership {
   Ownership({
     this.owner,
@@ -834,6 +858,8 @@ class Ownership {
   }
 }
 
+/// Trait class
+/// custom details about the asset
 class Trait {
   Trait({
     this.traitType,

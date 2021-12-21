@@ -1,3 +1,5 @@
+/// CollectionListObject class
+/// this is constructed from the getCollections method making a list of collections based on query
 class CollectionListObject {
   List<Collection>? collections;
 
@@ -31,6 +33,8 @@ class CollectionListObject {
   }
 }
 
+/// CollectionObject class
+/// this is constructed when calling the method getCollection, contains a single collection
 class CollectionObject {
   Collection? collection;
 
@@ -56,6 +60,8 @@ class CollectionObject {
   }
 }
 
+/// Collection class
+/// this contains details about a collection of NFT's
 class Collection {
   List<dynamic>? editors;
   List<dynamic>? paymentTokens;
@@ -244,6 +250,8 @@ class Collection {
   }
 }
 
+/// Traits class
+/// this holds all of the custom data about an NFT
 class Traits {
   Map<String, dynamic>? data;
 
@@ -259,6 +267,8 @@ class Traits {
   }
 }
 
+/// Stats class
+/// contains information about a collections statistics
 class Stats {
   double? oneDayVolume;
   double? oneDayChange;

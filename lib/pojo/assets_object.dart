@@ -1,3 +1,6 @@
+/// AssetObject class
+/// this is the dart pojo main class for retrieving multiple assets with the getAssets method
+/// contains a list of asset objects
 class AssetsObject {
   List<Assets>? assets;
 
@@ -26,6 +29,8 @@ class AssetsObject {
   }
 }
 
+/// Assets class
+/// contains all of the details of each asset
 class Assets {
   String? id;
   String? tokenId;
@@ -181,6 +186,8 @@ class Assets {
   }
 }
 
+/// AssetContract class
+/// contains all of the details for the contract of each asset
 class AssetContract {
   String? address;
   String? assetContractType;
@@ -287,6 +294,8 @@ class AssetContract {
   }
 }
 
+/// Collection class
+/// this class contains all of the details for the collection that each asset belongs
 class Collection {
   dynamic bannerImageUrl;
   dynamic chatUrl;
@@ -429,6 +438,8 @@ class Collection {
   }
 }
 
+/// DisplayData class
+/// contains the display information for the assets
 class DisplayData {
   String? cardDisplayStyle;
   List<dynamic>? images;
@@ -460,6 +471,8 @@ class DisplayData {
   }
 }
 
+/// Owner class
+/// details about the owner of the asset
 class Owner {
   User? user;
   String? profileImgUrl;
@@ -492,6 +505,8 @@ class Owner {
   }
 }
 
+/// User class
+/// contains username for each user listed
 class User {
   dynamic username;
 
@@ -513,6 +528,8 @@ class User {
   }
 }
 
+/// Traits class
+/// contains the dynamic traits that a user defines for their assets
 class Traits {
   String? traitType;
   dynamic value;
@@ -555,6 +572,8 @@ class Traits {
   }
 }
 
+/// BundlesObject class
+/// contains a list of bundles
 class BundlesObject {
   List<Bundles>? bundles;
 
@@ -583,6 +602,8 @@ class BundlesObject {
   }
 }
 
+/// Bundles class
+/// contains information pertaining to each bundle
 class Bundles {
   Maker? maker;
   String? slug;
@@ -657,6 +678,8 @@ class Bundles {
   }
 }
 
+/// Maker class
+/// contains details about the maker of asset or bundle
 class Maker {
   dynamic user;
   String? profileImgUrl;
@@ -689,6 +712,8 @@ class Maker {
   }
 }
 
+/// SellOrders
+/// details about an order for selling and NFT
 class SellOrders {
   String? createdDate;
   String? closingDate;
@@ -890,6 +915,8 @@ class SellOrders {
   }
 }
 
+/// Metadata class
+/// contains a bundle
 class Metadata {
   Bundle? bundle;
 
@@ -913,6 +940,8 @@ class Metadata {
   }
 }
 
+/// Bundle class
+/// contains details of a bundle like all the assets, shema, name, and description
 class Bundle {
   List<Assets>? assets;
   List<String>? schemas;
@@ -950,6 +979,8 @@ class Bundle {
   }
 }
 
+/// PaymentTokenContract class
+/// contains information about a payment
 class PaymentTokenContract {
   int? id;
   String? symbol;

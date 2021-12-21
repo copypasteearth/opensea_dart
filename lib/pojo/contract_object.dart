@@ -1,14 +1,14 @@
-// To parse this JSON data, do
-//
-//     final contractObject = contractObjectFromJson(jsonString);
-
 import 'dart:convert';
 
+/// makes a ContractObject from a string of json
 ContractObject contractObjectFromJson(String str) =>
     ContractObject.fromJson(json.decode(str));
 
+/// makes a string of json from a ContractObject instance
 String contractObjectToJson(ContractObject data) => json.encode(data.toJson());
 
+/// ContractObject class
+/// contains contractual details for a collection
 class ContractObject {
   ContractObject({
     this.collection,
@@ -122,6 +122,8 @@ class ContractObject {
   }
 }
 
+/// Collection class
+/// contains collection details for a contract
 class Collection {
   Collection({
     this.bannerImageUrl,
@@ -263,6 +265,8 @@ class Collection {
   }
 }
 
+/// DisplayData class
+/// represents the style of the display
 class DisplayData {
   DisplayData({
     this.cardDisplayStyle,
