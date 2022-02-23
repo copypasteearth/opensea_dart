@@ -336,7 +336,7 @@ class Stats {
     averagePrice = json['average_price'];
     numReports = json['num_reports'];
     marketCap = json['market_cap'];
-    floorPrice = json['floor_price'].toDouble();
+    floorPrice = json['floor_price']?.toDouble();
   }
 
   Map<String, dynamic> toJson() {
