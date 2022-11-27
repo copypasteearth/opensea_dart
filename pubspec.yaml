@@ -1,6 +1,6 @@
 name: opensea_dart
-description: dart wrapper for opensea REST API the api for NFT's through OpenSea, made for dart and flutter
-version: 0.0.2
+description: Opensea API for NFTs
+version: 0.1.0
 homepage: https://github.com/copypasteearth/opensea_dart
 repository: https://github.com/copypasteearth/opensea_dart
 
@@ -16,7 +16,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -1,19 +1,19 @@
 
-# unofficial opensea_dart everything works except testnet is not implemented yet
+# opensea_dart
 
-# OpenSea dart wrapper for use in dart and flutter applications
+Opensea dart wrapper for use in dart and flutter applications.
+
+Unofficial Opensea SDK package `opensea_dart`. Everything works as far as I know.
 
 [https://opensea.io/](https://opensea.io/)
 
-## what is not done is testnet
-
-
 ## Quick Example
+
 ```groovy
 dependencies:
-  opensea_dart: ^0.0.2
-
+  opensea_dart: ^0.1.0
 ```
+
 ```dart
 import 'package:opensea_dart/enums/enums.dart';
 import 'package:opensea_dart/opensea_dart.dart';
@@ -63,7 +63,7 @@ void main() async{
 
 ```
 
-## method signatures
+## Method Signatures
 
 ```dart
 Future<OrdersObject> getOrders({String? assetContractAddress, String? paymentTokenAddress, String? maker, String? taker, String? owner,bool? isEnglish, bool? bundled,bool? includeBundled,DateTime? listedAfter,DateTime? listedBefore, String? tokenId,List<String>? tokenIds, String? side,String? saleKind, String? limit, String? offset, String? orderBy, String? orderDirection})async
@@ -85,10 +85,12 @@ Future<ContractObject> getContract({required String assetContractAddress}) async
 Future<Stats> getCollectionStats({required String slug}) async
 ```
 
-# donate to buy this developer a cup of coffee
+## Donate
+
+Donate to buy this developer a cup of coffee.
 
 [Donate](https://commerce.coinbase.com/checkout/f5231452-a3f0-4cfd-bfa7-f0275ec5990e)
 
-# Check out my NFT's
+## Check out my NFTs
 
 [My NFT Collection](https://opensea.io/copypasteearth)
