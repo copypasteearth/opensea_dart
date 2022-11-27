@@ -1,6 +1,7 @@
 library opensea_dart;
 
 import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 import 'package:opensea_dart/pojo/assets_object.dart';
 import 'package:opensea_dart/pojo/collection_object.dart';
@@ -13,14 +14,22 @@ import 'package:opensea_dart/pojo/single_asset_object.dart';
 /// the entry point for the package
 /// constructor takes a String apiKey
 class OpenSea {
+  /// Host to use
+  String host = 'api.opensea.io';
+
   /// headers: used to store api key from constructor
   Map<String, String> headers = {};
+  bool apiKeyProvided = false;
 
   /// OpenSea : constructor
   /// apiKey: the users api key
-  OpenSea(String? apiKey) {
+  OpenSea(String? apiKey, {testNet = false}) {
+    if (testNet) {
+      host = 'testnets-api.opensea.io';
+    }
     if (apiKey != null && apiKey.isNotEmpty) {
       headers["X-API-KEY"] = apiKey;
+      apiKeyProvided = true;
     }
   }
 
@@ -127,15 +136,21 @@ class OpenSea {
     }
     var uri = Uri(
       scheme: 'https',
-      host: 'api.opensea.io',
+      host: host,
       path: 'wyvern/v1/orders',
-      fragment: '',
+      fragment: null,
       queryParameters: queryParameters,
     );
-
     var response = await http.get(uri, headers: headers);
 
-    return OrdersObject.fromJson(jsonDecode(response.body));
+    if (response.statusCode == 200) {
+      return OrdersObject.fromJson(jsonDecode(response.body));
+    }
+    if (response.statusCode == 403 && !apiKeyProvided) {
+      throw Exception('You must provide an API key for this request!');
+    }
+    throw Exception(
+        "Opensea returned HTTP ${response.statusCode}!\n${response.body}");
   }
 
   /// getEvents function : async retrieve events from opensea api (requires apiKey)
@@ -199,14 +214,22 @@ class OpenSea {
     }
     var uri = Uri(
       scheme: 'https',
-      host: 'api.opensea.io',
+      host: host,
       path: '/api/v1/events',
-      fragment: '',
+      fragment: null,
       queryParameters: queryParameters,
     );
 
     var response = await http.get(uri, headers: headers);
-    return EventObject.fromJson(jsonDecode(response.body));
+
+    if (response.statusCode == 200) {
+      return EventObject.fromJson(jsonDecode(response.body));
+    }
+    if (response.statusCode == 403 && !apiKeyProvided) {
+      throw Exception('You must provide an API key for this request!');
+    }
+    throw Exception(
+        "Opensea returned HTTP ${response.statusCode}!\n${response.body}");
   }
 
   /// getBundles function : async used to retrieve bundles from opensea api
@@ -255,14 +278,22 @@ class OpenSea {
     }
     var uri = Uri(
       scheme: 'https',
-      host: 'api.opensea.io',
+      host: host,
       path: '/api/v1/bundles',
-      fragment: '',
+      fragment: null,
       queryParameters: queryParameters,
     );
 
     var response = await http.get(uri, headers: headers);
-    return BundlesObject.fromJson(jsonDecode(response.body));
+
+    if (response.statusCode == 200) {
+      return BundlesObject.fromJson(jsonDecode(response.body));
+    }
+    if (response.statusCode == 403 && !apiKeyProvided) {
+      throw Exception('You must provide an API key for this request!');
+    }
+    throw Exception(
+        "Opensea returned HTTP ${response.statusCode}!\n${response.body}");
   }
 
   /// getCollections function : async used to retrieve multiple collections from opensea api
@@ -283,9 +314,9 @@ class OpenSea {
     }
     var uri = Uri(
       scheme: 'https',
-      host: 'api.opensea.io',
+      host: host,
       path: '/api/v1/collections',
-      fragment: '',
+      fragment: null,
       queryParameters: queryParameters,
     );
 
@@ -302,10 +333,23 @@ class OpenSea {
   /// getCollection function : async used to retrieve a single collection from opensea api
   /// collection: The collection slug of this collection that is used to uniquely link to this collection on OpenSea
   Future<CollectionObject> getCollection(String collection) async {
-    var url = Uri.parse('https://api.opensea.io/api/v1/collection/$collection');
+    var url = Uri(
+        scheme: 'https',
+        host: host,
+        path: '/api/v1/collection/$collection',
+        fragment: null,
+        queryParameters: null,
+    );
     var response = await http.get(url, headers: headers);
 
-    return CollectionObject.fromJson(jsonDecode(response.body));
+    if (response.statusCode == 200) {
+      return CollectionObject.fromJson(jsonDecode(response.body));
+    }
+    if (response.statusCode == 403 && !apiKeyProvided) {
+      throw Exception('You must provide an API key for this request!');
+    }
+    throw Exception(
+        "Opensea returned HTTP ${response.statusCode}!\n${response.body}");
   }
 
   /// getAssets function : async used to query different assets based on parameters
@@ -363,15 +407,22 @@ class OpenSea {
     }
     var uri = Uri(
       scheme: 'https',
-      host: 'api.opensea.io',
+      host: host,
       path: '/api/v1/assets',
-      fragment: '',
+      fragment: null,
       queryParameters: queryParameters,
     );
 
     var response = await http.get(uri, headers: headers);
 
-    return AssetsObject.fromJson(jsonDecode(response.body));
+    if (response.statusCode == 200) {
+      return AssetsObject.fromJson(jsonDecode(response.body));
+    }
+    if (response.statusCode == 403 && !apiKeyProvided) {
+      throw Exception('You must provide an API key for this request!');
+    }
+    throw Exception(
+        "Opensea returned HTTP ${response.statusCode}!\n${response.body}");
   }
 
   /// getAsset function : async used to retrieve a single asset
@@ -389,14 +440,21 @@ class OpenSea {
 
     var uri = Uri(
       scheme: 'https',
-      host: 'api.opensea.io',
+      host: host,
       path: '/api/v1/asset/$assetContractAddress/$tokenId/',
-      fragment: '',
+      fragment: null,
       queryParameters: queryParameters,
     );
     var response = await http.get(uri, headers: headers);
 
-    return SingleAssetObject.fromJson(jsonDecode(response.body));
+    if (response.statusCode == 200) {
+      return SingleAssetObject.fromJson(jsonDecode(response.body));
+    }
+    if (response.statusCode == 403 && !apiKeyProvided) {
+      throw Exception('You must provide an API key for this request!');
+    }
+    throw Exception(
+        "Opensea returned HTTP ${response.statusCode}!\n${response.body}");
   }
 
   /// getContract function : async used to retrieve a contract from opensea api
@@ -405,13 +463,21 @@ class OpenSea {
       {required String assetContractAddress}) async {
     var uri = Uri(
       scheme: 'https',
-      host: 'api.opensea.io',
+      host: host,
       path: '/api/v1/asset_contract/$assetContractAddress/',
-      fragment: '',
+      fragment: null,
       queryParameters: null,
     );
     var response = await http.get(uri, headers: headers);
-    return ContractObject.fromJson(jsonDecode(response.body));
+
+    if (response.statusCode == 200) {
+      return ContractObject.fromJson(jsonDecode(response.body));
+    }
+    if (response.statusCode == 403 && !apiKeyProvided) {
+      throw Exception('You must provide an API key for this request!');
+    }
+    throw Exception(
+        "Opensea returned HTTP ${response.statusCode}!\n${response.body}");
   }
 
   /// getCollectionStats function : async used to get the stats of a single collection
@@ -419,15 +485,23 @@ class OpenSea {
   Future<Stats> getCollectionStats({required String slug}) async {
     var uri = Uri(
       scheme: 'https',
-      host: 'api.opensea.io',
+      host: host,
       path: '/api/v1/collection/$slug/stats',
-      fragment: '',
+      fragment: null,
       queryParameters: null,
     );
     var response = await http.get(uri, headers: headers);
-    var res = jsonDecode(response.body)['stats'];
-    return res == null
-        ? Stats()
-        : Stats.fromJson(jsonDecode(response.body)['stats']);
+
+    if (response.statusCode == 200) {
+      var res = jsonDecode(response.body)['stats'];
+      return res == null
+          ? Stats()
+          : Stats.fromJson(jsonDecode(response.body)['stats']);
+    }
+    if (response.statusCode == 403 && !apiKeyProvided) {
+      throw Exception('You must provide an API key for this request!');
+    }
+    throw Exception(
+        "Opensea returned HTTP ${response.statusCode}!\n${response.body}");
   }
 }
